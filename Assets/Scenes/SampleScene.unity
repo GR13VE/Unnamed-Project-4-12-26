@@ -966,7 +966,7 @@ Transform:
   m_GameObject: {fileID: 1089791844}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.906, y: 1.96, z: -55.51}
+  m_LocalPosition: {x: 0.906, y: 3.18, z: -55.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1008,15 +1008,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342cd13ab00b20cebb7bcaa65980eea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  groundAcc: 32
-  maxGroundVel: 36
+  groundAcc: 14
+  maxGroundVel: 18
   friction: 4
-  jumpForce: 2
-  gravity: -16
-  airAcc: 16
-  maxAirVel: 40
-  airResistance: 1.6
-  maxFallVel: -28
+  jumpForce: 10
+  gravity: -9.7
+  airAcc: 1
+  maxAirVel: 6
+  maxFallVel: -12
   jumpBuffer: 0.066
   controller: {fileID: 1089791846}
   groundCheck: {fileID: 1997751598}
