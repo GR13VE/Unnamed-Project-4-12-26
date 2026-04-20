@@ -1,60 +1,38 @@
-Unity Editor version:    6000.4.2f1 (7a4c1aeef971)
-Branch:                  6000.4/staging
-Build type:              Release
-Batch mode:              YES
-System name:             Linux
-Distro version:          #22~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Mar 26 15:25:54 UTC 2
-Kernel version:          6.17.0-22-generic
-Architecture:            x86_64
-Available memory:        31761 MB
-Date:                    2026-04-20T22:55:39Z
 [Licensing::Module] Trying to connect to existing licensing client channel...
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-darrell" at "2026-04-20T22:55:39.404694Z"
-[SignatureVerifier] Application signature verification not supported on this platform.
-[Licensing::Client] Error: HandshakeResponse reported an error:
-	ResponseCode: 505
-	ResponseStatus: Unsupported protocol version '1.18.1'.
-[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-darrell"
-[Licensing::IpcConnector] LicenseClient-darrell channel disconnected successfully.
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-darrell-6000.4.2" at "2026-04-20T22:55:39.405867Z"
-[SignatureVerifier] Application signature verification not supported on this platform.
-[Licensing::Client] Handshaking with LicensingClient:
-  Version:                 1.18.1+9fbee8e
-  Session Id:              b1f4eebdb08f46f3b67d5d1a5b63e0af
-  Correlation Id:          3498ceee1234421940fddf7c11ae3bcf
-  External correlation Id: 6394516007087976964
-  Machine Id:              EwElGeHIK8J2G3N8Lrppy2Bif9M=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-darrell-6000.4.2" (connect: 0.00s, validation: 0.00s, handshake: 0.00s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-darrell-6000.4.2-notifications" at "2026-04-20T22:55:39.406946Z"
-[Licensing::Module] Licensing Background thread has ended after 0.00s
-Selected window backend: (null) 
-Desktop is 1920 x 1080 @ 60 Hz
-Initialize udev device monitor.
+Built from '6000.4/staging' branch; Version is '6000.4.2f1 (7a4c1aeef971) revision 8014874'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 31904 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-kmccl" at "2026-04-20T23:19:14.1464451Z"
+System  architecture: x64
+Process architecture: x64
+Date: 2026-04-20T23:19:14Z
 
 COMMAND LINE ARGUMENTS:
-Unity
+C:\Program Files\Unity\Hub\Editor\6000.4.2f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker2
 -projectPath
-/home/darrell/Unity/GR13VE
+C:/Users/kmccl/OneDrive/Documents/GitHub/Unnamed-Project-4-12-26
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-35463
+53823
 -licensingIpc
-LicenseClient-darrell
--force-vulkan
+LicenseClient-kmccl
+-force-d3d12
 -job-worker-count
-9
+5
 -background-job-worker-count
 8
 -gc-helper-count
 1
-Successfully changed project path to: /home/darrell/Unity/GR13VE
-/home/darrell/Unity/GR13VE
+-name
+AssetImport
+Successfully changed project path to: C:/Users/kmccl/OneDrive/Documents/GitHub/Unnamed-Project-4-12-26
+C:/Users/kmccl/OneDrive/Documents/GitHub/Unnamed-Project-4-12-26
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
@@ -64,12 +42,12 @@ Successfully changed project path to: /home/darrell/Unity/GR13VE
     "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
     "memorysetup-temp-allocator-size-audio-worker=65536"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
     "memorysetup-allocator-temp-initial-block-size-main=262144"
     "memorysetup-allocator-temp-initial-block-size-worker=262144"
-    "memorysetup-temp-allocator-size-background-worker=32768"
-    "memorysetup-temp-allocator-size-job-worker=262144"
-    "memorysetup-temp-allocator-size-preload-manager=33554432"
-    "memorysetup-temp-allocator-size-gfx=262144"
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
     "memorysetup-bucket-allocator-block-size=33554432"
@@ -90,15 +68,15 @@ Successfully changed project path to: /home/darrell/Unity/GR13VE
     "memorysetup-job-temp-allocator-block-size=2097152"
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
-Player connection [133958023609152]  Target information:
+Player connection [22792]  Target information:
 
-Player connection [133958023609152]  * "[IP] 192.168.0.242 [Port] 0 [Flags] 2 [Guid] 2841161062 [EditorId] 2841161062 [Version] 1048832 [Id] LinuxEditor(16,192.168.0.242) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+Player connection [22792]  * "[IP] 192.168.0.87 [Port] 0 [Flags] 2 [Guid] 1495003839 [EditorId] 1495003839 [Version] 1048832 [Id] WindowsEditor(7,Bebop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [133958023609152]  * "[IP] 192.168.0.238 [Port] 0 [Flags] 2 [Guid] 2841161062 [EditorId] 2841161062 [Version] 1048832 [Id] LinuxEditor(16,192.168.0.242) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+Player connection [22792]  * "[IP] 10.5.0.2 [Port] 0 [Flags] 2 [Guid] 1495003839 [EditorId] 1495003839 [Version] 1048832 [Id] WindowsEditor(7,Bebop) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [133958023609152] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [133958023609152] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 9
+Player connection [22792] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [22792] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -109,591 +87,81 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 4.08 ms, found 4 plugins.
 Initialize engine version: 6000.4.2f1 (7a4c1aeef971)
-[Subsystems] Discovering subsystems at path /home/darrell/Unity/Hub/Editor/6000.4.2f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /home/darrell/Unity/GR13VE/Assets
-Forcing GfxDevice: Vulkan
-GfxDevice: creating device client; kGfxThreadingModeThreaded
-[vulkan] LoadVulkanLibrary libvulkan.so.1[vulkan] Loaded instance function vkGetInstanceProcAddr
-[vulkan] Loaded instance function vkGetInstanceProcAddr
-[vulkan] Loaded instance function vkCreateInstance
-[vulkan] Loaded instance function vkEnumerateInstanceExtensionProperties
-[vulkan] Loaded instance function vkEnumerateInstanceLayerProperties
-[vulkan] Loaded instance function vkEnumerateInstanceVersion
-[Vulkan init] extensions: count=24
-[Vulkan init] extensions: name=VK_EXT_acquire_drm_display [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_acquire_xlib_display [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_debug_report [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_debug_utils [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_direct_mode_display [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_display_surface_counter [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_headless_surface [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_surface_maintenance1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_swapchain_colorspace [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_device_group_creation [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_display [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_fence_capabilities [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_memory_capabilities [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_semaphore_capabilities [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_display_properties2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_physical_device_properties2 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_surface_capabilities2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_portability_enumeration [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_surface [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_surface_protected_capabilities [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_wayland_surface [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_xcb_surface [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_xlib_surface [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_LUNARG_direct_driver_loading [enabled=0, external=0]
-[vulkan] Loaded instance function vkDestroyInstance
-[vulkan] Loaded instance function vkGetPhysicalDeviceProperties
-[vulkan] Loaded instance function vkEnumeratePhysicalDevices
-[Vulkan init] SelectPhysicalDevice requestedDeviceIndex=-1 xrDevice=(nil)
-[Vulkan init] Physical Device 0x5f1fb33db2d0 [0]: "Intel(R) Iris(R) Xe Graphics (ADL GT2)" deviceType=1 vendorID=8086 deviceID=46a6
-[Vulkan init] Physical Device 0x5f1fb33db2a0 [1]: "NVIDIA GeForce RTX 3070 Ti Laptop GPU" deviceType=2 vendorID=10de deviceID=24e0
-[Vulkan init] Physical Device 0x5f1fb33db270 [2]: "llvmpipe (LLVM 20.1.2, 256 bits)" deviceType=4 vendorID=10005 deviceID=0
-Vulkan detection: 2
-[Vulkan init] extensions: count=24
-[Vulkan init] extensions: name=VK_EXT_acquire_drm_display [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_acquire_xlib_display [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_debug_report [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_debug_utils [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_direct_mode_display [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_display_surface_counter [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_headless_surface [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_surface_maintenance1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_swapchain_colorspace [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_device_group_creation [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_display [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_fence_capabilities [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_memory_capabilities [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_semaphore_capabilities [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_display_properties2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_physical_device_properties2 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_surface_capabilities2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_portability_enumeration [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_surface [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_surface_protected_capabilities [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_wayland_surface [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_xcb_surface [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_xlib_surface [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_LUNARG_direct_driver_loading [enabled=0, external=0]
-[vulkan] Loaded instance function vkDestroyInstance
-[vulkan] Loaded instance function vkGetPhysicalDeviceProperties
-[vulkan] Loaded instance function vkEnumeratePhysicalDevices
-[vulkan] Loaded instance function vkGetDeviceProcAddr
-[vulkan] Loaded instance function vkGetPhysicalDeviceFeatures
-[vulkan] Loaded instance function vkGetPhysicalDeviceFormatProperties
-[vulkan] Loaded instance function vkGetPhysicalDeviceImageFormatProperties
-[vulkan] Loaded instance function vkGetPhysicalDeviceQueueFamilyProperties
-[vulkan] Loaded instance function vkGetPhysicalDeviceMemoryProperties
-[vulkan] Loaded instance function vkCreateDevice
-[vulkan] Loaded instance function vkEnumerateDeviceExtensionProperties
-[vulkan] Loaded instance function vkEnumerateDeviceLayerProperties
-[vulkan] Loaded instance function vkGetPhysicalDeviceSparseImageFormatProperties
-[vulkan] Loaded instance function vkDestroySurfaceKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceSurfaceSupportKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceSurfaceCapabilitiesKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceSurfaceFormatsKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceSurfacePresentModesKHR
-[vulkan] Loaded instance function vkCreateSwapchainKHR
-[vulkan] Loaded instance function vkDestroySwapchainKHR
-[vulkan] Loaded instance function vkGetSwapchainImagesKHR
-[vulkan] Loaded instance function vkAcquireNextImageKHR
-[vulkan] Loaded instance function vkQueuePresentKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceDisplayPropertiesKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceDisplayPlanePropertiesKHR
-[vulkan] Loaded instance function vkGetDisplayPlaneSupportedDisplaysKHR
-[vulkan] Loaded instance function vkGetDisplayModePropertiesKHR
-[vulkan] Loaded instance function vkCreateDisplayModeKHR
-[vulkan] Loaded instance function vkGetDisplayPlaneCapabilitiesKHR
-[vulkan] Loaded instance function vkCreateDisplayPlaneSurfaceKHR
-[vulkan] Loaded instance function vkCreateSharedSwapchainsKHR
-[vulkan] Loaded instance function vkCreateXlibSurfaceKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceXlibPresentationSupportKHR
-[vulkan] Loaded instance function vkSetHdrMetadataEXT
-[vulkan] Loaded instance function vkGetPhysicalDeviceFeatures2KHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceProperties2KHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceFormatProperties2KHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceImageFormatProperties2KHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceQueueFamilyProperties2KHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceMemoryProperties2KHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceSparseImageFormatProperties2KHR
-[vulkan] Loaded instance function vkGetSemaphoreFdKHR
-[vulkan] Loaded instance function vkImportSemaphoreFdKHR
-[vulkan] Loaded instance function vkGetFenceFdKHR
-[vulkan] Loaded instance function vkImportFenceFdKHR
-[vulkan] Loaded instance function vkCreateSamplerYcbcrConversionKHR
-[vulkan] Loaded instance function vkDestroySamplerYcbcrConversionKHR
-[vulkan] Loaded instance function vkBindBufferMemory2KHR
-[vulkan] Loaded instance function vkBindImageMemory2KHR
-[vulkan] Loaded instance function vkWaitForPresentKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceExternalSemaphorePropertiesKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceExternalFencePropertiesKHR
-[vulkan] Loaded instance function vkGetPhysicalDeviceFragmentShadingRatesKHR
-[vulkan] Loaded instance function vkSetDebugUtilsObjectNameEXT
-[vulkan] Loaded instance function vkSetDebugUtilsObjectTagEXT
-[vulkan] Loaded instance function vkQueueBeginDebugUtilsLabelEXT
-[vulkan] Loaded instance function vkQueueEndDebugUtilsLabelEXT
-[vulkan] Loaded instance function vkQueueInsertDebugUtilsLabelEXT
-[vulkan] Loaded instance function vkCmdBeginDebugUtilsLabelEXT
-[vulkan] Loaded instance function vkCmdEndDebugUtilsLabelEXT
-[vulkan] Loaded instance function vkCmdInsertDebugUtilsLabelEXT
-[Vulkan init] SelectPhysicalDevice requestedDeviceIndex=-1 xrDevice=(nil)
-[Vulkan init] Physical Device 0x5f1fb3381df0 [0]: "Intel(R) Iris(R) Xe Graphics (ADL GT2)" deviceType=1 vendorID=8086 deviceID=46a6
-[Vulkan init] Physical Device 0x5f1fb3381dc0 [1]: "NVIDIA GeForce RTX 3070 Ti Laptop GPU" deviceType=2 vendorID=10de deviceID=24e0
-[Vulkan init] Physical Device 0x5f1fb3381ee0 [2]: "llvmpipe (LLVM 20.1.2, 256 bits)" deviceType=4 vendorID=10005 deviceID=0
-[Vulkan init] Selected physical device 0x5f1fb3381dc0
-[Vulkan init] Graphics queue count=1
-[Vulkan init] extensions: count=251
-[Vulkan init] extensions: name=VK_AMD_buffer_marker [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_4444_formats [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_attachment_feedback_loop_dynamic_state [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_attachment_feedback_loop_layout [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_blend_operation_advanced [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_border_color_swizzle [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_buffer_device_address [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_calibrated_timestamps [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_color_write_enable [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_conditional_rendering [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_conservative_rasterization [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_custom_border_color [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_depth_bias_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_depth_clamp_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_depth_clamp_zero_one [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_depth_clip_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_depth_clip_enable [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_depth_range_unrestricted [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_descriptor_buffer [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_descriptor_indexing [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_device_address_binding_report [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_device_fault [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_device_generated_commands [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_discard_rectangles [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_display_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_dynamic_rendering_unused_attachments [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_extended_dynamic_state [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_extended_dynamic_state2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_extended_dynamic_state3 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_external_memory_dma_buf [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_external_memory_host [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_fragment_shader_interlock [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_global_priority [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_global_priority_query [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_graphics_pipeline_library [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_host_image_copy [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_host_query_reset [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_image_2d_view_of_3d [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_image_drm_format_modifier [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_image_robustness [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_image_sliced_view_of_3d [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_image_view_min_lod [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_index_type_uint8 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_inline_uniform_block [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_legacy_vertex_attributes [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_line_rasterization [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_load_store_op_none [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_map_memory_placed [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_memory_budget [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_memory_priority [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_mesh_shader [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_multi_draw [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_mutable_descriptor_type [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_nested_command_buffer [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_non_seamless_cube_map [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_opacity_micromap [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_pageable_device_local_memory [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_pci_bus_info [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_physical_device_drm [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_pipeline_creation_cache_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_pipeline_creation_feedback [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_pipeline_library_group_handles [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_pipeline_robustness [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_post_depth_coverage [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_present_mode_fifo_latest_ready [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_primitive_topology_list_restart [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_primitives_generated_query [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_private_data [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_provoking_vertex [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_queue_family_foreign [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_robustness2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_sample_locations [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_sampler_filter_minmax [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_scalar_block_layout [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_separate_stencil_usage [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_atomic_float [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_demote_to_helper_invocation [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_image_atomic_int64 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_module_identifier [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_object [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_replicated_composites [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_subgroup_ballot [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_subgroup_vote [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_shader_viewport_index_layer [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_subgroup_size_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_swapchain_maintenance1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_texel_buffer_alignment [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_tooling_info [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_transform_feedback [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_vertex_attribute_divisor [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_vertex_attribute_robustness [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_vertex_input_dynamic_state [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_EXT_ycbcr_2plane_444_formats [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_EXT_ycbcr_image_arrays [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_GOOGLE_hlsl_functionality1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_GOOGLE_user_type [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_16bit_storage [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_8bit_storage [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_acceleration_structure [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_bind_memory2 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_buffer_device_address [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_calibrated_timestamps [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_compute_shader_derivatives [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_cooperative_matrix [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_copy_commands2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_create_renderpass2 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_dedicated_allocation [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_deferred_host_operations [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_depth_clamp_zero_one [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_depth_stencil_resolve [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_descriptor_update_template [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_device_group [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_draw_indirect_count [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_driver_properties [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_dynamic_rendering [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_dynamic_rendering_local_read [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_fence [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_fence_fd [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_memory [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_memory_fd [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_semaphore [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_external_semaphore_fd [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_format_feature_flags2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_fragment_shader_barycentric [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_fragment_shading_rate [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_get_memory_requirements2 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_global_priority [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_image_format_list [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_imageless_framebuffer [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_incremental_present [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_index_type_uint8 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_line_rasterization [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_load_store_op_none [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance1 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance2 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance3 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance4 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance5 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance6 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance7 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_maintenance8 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_map_memory2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_multiview [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_pipeline_binary [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_pipeline_executable_properties [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_pipeline_library [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_present_id [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_present_wait [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_push_descriptor [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_ray_query [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_ray_tracing_maintenance1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_ray_tracing_pipeline [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_ray_tracing_position_fetch [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_relaxed_block_layout [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_sampler_mirror_clamp_to_edge [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_sampler_ycbcr_conversion [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_separate_depth_stencil_layouts [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_atomic_int64 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_bfloat16 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_clock [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_draw_parameters [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_expect_assume [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_float16_int8 [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_float_controls [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_float_controls2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_integer_dot_product [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_maximal_reconvergence [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_non_semantic_info [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_quad_control [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_relaxed_extended_instruction [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_subgroup_extended_types [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_subgroup_rotate [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_subgroup_uniform_control_flow [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shader_terminate_invocation [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_shared_presentable_image [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_spirv_1_4 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_storage_buffer_storage_class [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_swapchain [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_swapchain_mutable_format [enabled=1, external=0]
-[Vulkan init] extensions: name=VK_KHR_synchronization2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_timeline_semaphore [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_uniform_buffer_standard_layout [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_variable_pointers [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_vertex_attribute_divisor [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_decode_av1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_decode_h264 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_decode_h265 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_decode_queue [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_decode_vp9 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_encode_h264 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_encode_h265 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_encode_quantization_map [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_encode_queue [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_maintenance1 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_maintenance2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_video_queue [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_vulkan_memory_model [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_workgroup_memory_explicit_layout [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_KHR_zero_initialize_workgroup_memory [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NVX_binary_import [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NVX_image_view_handle [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NVX_multiview_per_view_attributes [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_clip_space_w_scaling [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_cluster_acceleration_structure [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_compute_shader_derivatives [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_cooperative_matrix [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_cooperative_matrix2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_cooperative_vector [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_copy_memory_indirect [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_corner_sampled_image [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_coverage_reduction_mode [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_cuda_kernel_launch [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_dedicated_allocation [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_dedicated_allocation_image_aliasing [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_descriptor_pool_overallocation [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_device_diagnostic_checkpoints [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_device_diagnostics_config [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_device_generated_commands [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_device_generated_commands_compute [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_disk_cache_utils [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_extended_sparse_address_space [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_fill_rectangle [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_fragment_coverage_to_color [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_fragment_shader_barycentric [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_fragment_shading_rate_enums [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_framebuffer_mixed_samples [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_geometry_shader_passthrough [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_inherited_viewport_scissor [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_internal_nvpresent [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_linear_color_attachment [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_low_latency [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_low_latency2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_memory_decompression [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_mesh_shader [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_optical_flow [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_partitioned_acceleration_structure [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_present_metering [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_raw_access_chains [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_ray_tracing [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_ray_tracing_invocation_reorder [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_ray_tracing_motion_blur [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_representative_fragment_test [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_sample_mask_override_coverage [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_scissor_exclusive [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_shader_atomic_float16_vector [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_shader_image_footprint [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_shader_sm_builtins [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_shader_subgroup_partitioned [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_shading_rate_image [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_viewport_array2 [enabled=0, external=0]
-[Vulkan init] extensions: name=VK_NV_viewport_swizzle [enabled=0, external=0]
-[vulkan] Loaded device function vkDestroyDevice
-[vulkan] Loaded device function vkGetDeviceQueue
-[vulkan] Loaded device function vkQueueSubmit
-[vulkan] Loaded device function vkQueueWaitIdle
-[vulkan] Loaded device function vkDeviceWaitIdle
-[vulkan] Loaded device function vkAllocateMemory
-[vulkan] Loaded device function vkFreeMemory
-[vulkan] Loaded device function vkMapMemory
-[vulkan] Loaded device function vkUnmapMemory
-[vulkan] Loaded device function vkFlushMappedMemoryRanges
-[vulkan] Loaded device function vkInvalidateMappedMemoryRanges
-[vulkan] Loaded device function vkGetDeviceMemoryCommitment
-[vulkan] Loaded device function vkBindBufferMemory
-[vulkan] Loaded device function vkBindImageMemory
-[vulkan] Loaded device function vkGetBufferMemoryRequirements
-[vulkan] Loaded device function vkGetImageMemoryRequirements
-[vulkan] Loaded device function vkGetImageSparseMemoryRequirements
-[vulkan] Loaded device function vkQueueBindSparse
-[vulkan] Loaded device function vkCreateFence
-[vulkan] Loaded device function vkDestroyFence
-[vulkan] Loaded device function vkResetFences
-[vulkan] Loaded device function vkGetFenceStatus
-[vulkan] Loaded device function vkWaitForFences
-[vulkan] Loaded device function vkCreateSemaphore
-[vulkan] Loaded device function vkDestroySemaphore
-[vulkan] Loaded device function vkCreateEvent
-[vulkan] Loaded device function vkDestroyEvent
-[vulkan] Loaded device function vkGetEventStatus
-[vulkan] Loaded device function vkSetEvent
-[vulkan] Loaded device function vkResetEvent
-[vulkan] Loaded device function vkCreateQueryPool
-[vulkan] Loaded device function vkDestroyQueryPool
-[vulkan] Loaded device function vkGetQueryPoolResults
-[vulkan] Loaded device function vkCreateBuffer
-[vulkan] Loaded device function vkDestroyBuffer
-[vulkan] Loaded device function vkCreateBufferView
-[vulkan] Loaded device function vkDestroyBufferView
-[vulkan] Loaded device function vkCreateImage
-[vulkan] Loaded device function vkDestroyImage
-[vulkan] Loaded device function vkGetImageSubresourceLayout
-[vulkan] Loaded device function vkCreateImageView
-[vulkan] Loaded device function vkDestroyImageView
-[vulkan] Loaded device function vkCreateShaderModule
-[vulkan] Loaded device function vkDestroyShaderModule
-[vulkan] Loaded device function vkCreatePipelineCache
-[vulkan] Loaded device function vkDestroyPipelineCache
-[vulkan] Loaded device function vkGetPipelineCacheData
-[vulkan] Loaded device function vkMergePipelineCaches
-[vulkan] Loaded device function vkCreateGraphicsPipelines
-[vulkan] Loaded device function vkCreateComputePipelines
-[vulkan] Loaded device function vkDestroyPipeline
-[vulkan] Loaded device function vkCreatePipelineLayout
-[vulkan] Loaded device function vkDestroyPipelineLayout
-[vulkan] Loaded device function vkCreateSampler
-[vulkan] Loaded device function vkDestroySampler
-[vulkan] Loaded device function vkCreateDescriptorSetLayout
-[vulkan] Loaded device function vkDestroyDescriptorSetLayout
-[vulkan] Loaded device function vkCreateDescriptorPool
-[vulkan] Loaded device function vkDestroyDescriptorPool
-[vulkan] Loaded device function vkResetDescriptorPool
-[vulkan] Loaded device function vkAllocateDescriptorSets
-[vulkan] Loaded device function vkFreeDescriptorSets
-[vulkan] Loaded device function vkUpdateDescriptorSets
-[vulkan] Loaded device function vkCreateFramebuffer
-[vulkan] Loaded device function vkDestroyFramebuffer
-[vulkan] Loaded device function vkCreateRenderPass
-[vulkan] Loaded device function vkDestroyRenderPass
-[vulkan] Loaded device function vkGetRenderAreaGranularity
-[vulkan] Loaded device function vkCreateCommandPool
-[vulkan] Loaded device function vkDestroyCommandPool
-[vulkan] Loaded device function vkResetCommandPool
-[vulkan] Loaded device function vkAllocateCommandBuffers
-[vulkan] Loaded device function vkFreeCommandBuffers
-[vulkan] Loaded device function vkBeginCommandBuffer
-[vulkan] Loaded device function vkEndCommandBuffer
-[vulkan] Loaded device function vkResetCommandBuffer
-[vulkan] Loaded device function vkCmdBindPipeline
-[vulkan] Loaded device function vkCmdSetViewport
-[vulkan] Loaded device function vkCmdSetScissor
-[vulkan] Loaded device function vkCmdSetLineWidth
-[vulkan] Loaded device function vkCmdSetDepthBias
-[vulkan] Loaded device function vkCmdSetBlendConstants
-[vulkan] Loaded device function vkCmdSetDepthBounds
-[vulkan] Loaded device function vkCmdSetStencilCompareMask
-[vulkan] Loaded device function vkCmdSetStencilWriteMask
-[vulkan] Loaded device function vkCmdSetStencilReference
-[vulkan] Loaded device function vkCmdBindDescriptorSets
-[vulkan] Loaded device function vkCmdBindIndexBuffer
-[vulkan] Loaded device function vkCmdBindVertexBuffers
-[vulkan] Loaded device function vkCmdDraw
-[vulkan] Loaded device function vkCmdDrawIndexed
-[vulkan] Loaded device function vkCmdDrawIndirect
-[vulkan] Loaded device function vkCmdDrawIndexedIndirect
-[vulkan] Loaded device function vkCmdDispatch
-[vulkan] Loaded device function vkCmdDispatchIndirect
-[vulkan] Loaded device function vkCmdCopyBuffer
-[vulkan] Loaded device function vkCmdCopyImage
-[vulkan] Loaded device function vkCmdBlitImage
-[vulkan] Loaded device function vkCmdCopyBufferToImage
-[vulkan] Loaded device function vkCmdCopyImageToBuffer
-[vulkan] Loaded device function vkCmdUpdateBuffer
-[vulkan] Loaded device function vkCmdFillBuffer
-[vulkan] Loaded device function vkCmdClearColorImage
-[vulkan] Loaded device function vkCmdClearDepthStencilImage
-[vulkan] Loaded device function vkCmdClearAttachments
-[vulkan] Loaded device function vkCmdResolveImage
-[vulkan] Loaded device function vkCmdSetEvent
-[vulkan] Loaded device function vkCmdResetEvent
-[vulkan] Loaded device function vkCmdWaitEvents
-[vulkan] Loaded device function vkCmdPipelineBarrier
-[vulkan] Loaded device function vkCmdBeginQuery
-[vulkan] Loaded device function vkCmdEndQuery
-[vulkan] Loaded device function vkCmdResetQueryPool
-[vulkan] Loaded device function vkCmdWriteTimestamp
-[vulkan] Loaded device function vkCmdCopyQueryPoolResults
-[vulkan] Loaded device function vkCmdPushConstants
-[vulkan] Loaded device function vkCmdBeginRenderPass
-[vulkan] Loaded device function vkCmdNextSubpass
-[vulkan] Loaded device function vkCmdEndRenderPass
-[vulkan] Loaded device function vkCmdExecuteCommands
-[vulkan] Loaded device function vkGetImageMemoryRequirements2KHR
-[vulkan] Loaded device function vkGetBufferMemoryRequirements2KHR
-[vulkan] Loaded device function vkGetImageSparseMemoryRequirements2KHR
-[vulkan] Loaded device function vkCreateDescriptorUpdateTemplateKHR
-[vulkan] Loaded device function vkDestroyDescriptorUpdateTemplateKHR
-[vulkan] Loaded device function vkUpdateDescriptorSetWithTemplateKHR
-[vulkan] Loaded device function vkCmdBeginRenderPass2KHR
-[vulkan] Loaded device function vkCmdEndRenderPass2KHR
-[vulkan] Loaded device function vkCmdNextSubpass2KHR
-[vulkan] Loaded device function vkCreateRenderPass2KHR
-[vulkan] Loaded device function vkCmdSetVertexInputEXT
-[vulkan] Loaded device function vkCmdSetFragmentShadingRateKHR
-[vulkan] Failed to load device function vkGetFramebufferTilePropertiesQCOM
-[vulkan] Loaded instance function vkGetFramebufferTilePropertiesQCOM
-[vulkan] Failed to load device function vkDebugMarkerSetObjectTagEXT
-[vulkan] Loaded instance function vkDebugMarkerSetObjectTagEXT
-[vulkan] Failed to load device function vkDebugMarkerSetObjectNameEXT
-[vulkan] Loaded instance function vkDebugMarkerSetObjectNameEXT
-[vulkan] Failed to load device function vkCmdDebugMarkerBeginEXT
-[vulkan] Loaded instance function vkCmdDebugMarkerBeginEXT
-[vulkan] Failed to load device function vkCmdDebugMarkerEndEXT
-[vulkan] Loaded instance function vkCmdDebugMarkerEndEXT
-[vulkan] Failed to load device function vkCmdDebugMarkerInsertEXT
-[vulkan] Loaded instance function vkCmdDebugMarkerInsertEXT
-Vulkan API version 1.1.0 (1.4.312 supported by driver, 1.1.0 requested)
-Vulkan vendor=[NVIDIA] id=[10de]
-Vulkan renderer=[NVIDIA GeForce RTX 3070 Ti Laptop GPU] id=[24e0]
-Vulkan device type 2
-Vulkan driverversion=[580.504.576 (0x911f8240)] uint=[-1860206016]
-Vulkan driverLibraryString=[NVIDIA (4), 580.126.09]
-Vulkan PSO: Cache data successfully loaded [size=15840,path=/tmp/DefaultCompany/Unnamed Project 4-12-26/vulkan_pso_cache.bin]
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.4.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/kmccl/OneDrive/Documents/GitHub/Unnamed-Project-4-12-26/Assets
+Forcing GfxDevice: Direct3D 12
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        AMD Radeon RX 6700 XT (ID=0x73df)
+    Vendor:          ATI
+    VRAM:            12242 MB
+    App VRAM Budget: 11474 MB
+    Driver:          32.0.21043.5001
 Initialize mono
-Mono path[0] = '/home/darrell/Unity/Hub/Editor/6000.4.2f1/Editor/Data/Managed'
-Mono path[1] = '/home/darrell/Unity/Hub/Editor/6000.4.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
-Mono config path = '/home/darrell/Unity/Hub/Editor/6000.4.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56650
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.4.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.4.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.4.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56992
 CodeReloadManager initialized
 Begin MonoManager ReloadAssembly
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.18.1'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-kmccl"
+[Licensing::IpcConnector] LicenseClient-kmccl channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-kmccl-6000.4.2" at "2026-04-20T23:19:15.1827818Z"
 Registering precompiled unity dll's ...
-Register platform support module: /home/darrell/Unity/Hub/Editor/6000.4.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
-Register platform support module: /home/darrell/Unity/Hub/Editor/6000.4.2f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.000942 seconds.
-Native extension for LinuxStandalone target not found
-Native extension for WebGL target not found
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001856 seconds.
+Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.363 seconds
-Domain Reload Profiling: 693ms
-	BeginReloadAssembly (62ms)
-	RebuildCommonClasses (32ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (174ms)
-		LoadAssemblies (61ms)
-		AnalyzeDomain (166ms)
-			TypeCache.Refresh (165ms)
-				TypeCache.ScanAssembly (154ms)
-	FinalizeReload (365ms)
+- Finished resetting the current domain, in  0.478 seconds
+Domain Reload Profiling: 1019ms
+	BeginReloadAssembly (144ms)
+	RebuildCommonClasses (70ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (74ms)
+	LoadAllAssembliesAndSetupDomain (227ms)
+		LoadAssemblies (141ms)
+		AnalyzeDomain (216ms)
+			TypeCache.Refresh (214ms)
+				TypeCache.ScanAssembly (198ms)
+	FinalizeReload (480ms)
 		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (75ms)
-			BeforeProcessingInitializeOnLoad (78ms)
-			ProcessInitializeOnLoadAttributes (94ms)
-			ProcessInitializeOnLoadMethodAttributes (47ms)
+			InitializePlatformSupportModulesInManaged (52ms)
+			BeforeProcessingInitializeOnLoad (110ms)
+			ProcessInitializeOnLoadAttributes (132ms)
+			ProcessInitializeOnLoadMethodAttributes (94ms)
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              9db4f4b3d084441ca6713edfe19ae0fe
+  Correlation Id:          25e9b1c4bab34007bd51a8b89460a473
+  External correlation Id: 8382897810494931680
+  Machine Id:              2LCltKyxogOUwb+c5gq+bq57YMA=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-kmccl-6000.4.2" (connect: 0.00s, validation: 0.00s, handshake: 0.98s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-kmccl-6000.4.2-notifications" at "2026-04-20T23:19:16.1627135Z"
+[Licensing::Module] Licensing Background thread has ended after 2.02s
 ========================================================================
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
-  Id: 20066436241682-UnityPersXXXX
+  Id: F4-RK7J-EGEK-UJAK-Y22E-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474100020736-UnityPersXXXX
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
@@ -729,8 +197,7 @@ Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Un
 Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
 Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
 Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
-Native extension for LinuxStandalone target not found
-Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
@@ -739,96 +206,578 @@ Native extension for WebGL target not found
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.693 seconds
-Domain Reload Profiling: 1267ms
-	BeginReloadAssembly (108ms)
-		DisableScriptedObjects (4ms)
-		CreateAndSetChildDomain (29ms)
-	RebuildCommonClasses (33ms)
-	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (47ms)
-	LoadAllAssembliesAndSetupDomain (379ms)
-		LoadAssemblies (207ms)
-		AnalyzeDomain (211ms)
-			TypeCache.Refresh (152ms)
-				TypeCache.ScanAssembly (139ms)
-			BuildScriptInfoCaches (49ms)
+- Finished resetting the current domain, in  0.855 seconds
+Domain Reload Profiling: 1737ms
+	BeginReloadAssembly (195ms)
+		DisableScriptedObjects (6ms)
+		CreateAndSetChildDomain (38ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (72ms)
+	LoadAllAssembliesAndSetupDomain (562ms)
+		LoadAssemblies (397ms)
+		AnalyzeDomain (271ms)
+			TypeCache.Refresh (188ms)
+				TypeCache.ScanAssembly (173ms)
+			BuildScriptInfoCaches (71ms)
 			ResolveRequiredComponents (9ms)
-	FinalizeReload (693ms)
+	FinalizeReload (855ms)
 		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (16ms)
-			BeforeProcessingInitializeOnLoad (110ms)
-			ProcessInitializeOnLoadAttributes (333ms)
-			ProcessInitializeOnLoadMethodAttributes (57ms)
-		AwakeInstancesAfterBackupRestoration (3ms)
-AutoLocale: current locale expects 'C' but got 'en_US.UTF-8'Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
-Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6549 unused Assets / (6.9 MB). Loaded Objects now: 7371.
-Memory consumption went from 191.3 MB to 184.4 MB.
-Total: 12.014583 ms (FindLiveObjects: 0.468269 ms CreateObjectMapping: 0.639529 ms MarkObjects: 6.231284 ms  DeleteObjects: 4.674154 ms)
+			BeforeProcessingInitializeOnLoad (149ms)
+			ProcessInitializeOnLoadAttributes (428ms)
+			ProcessInitializeOnLoadMethodAttributes (66ms)
+			AfterProcessingInitializeOnLoad (6ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 2.21 ms, found 4 plugins.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6548 unused Assets / (6.1 MB). Loaded Objects now: 7356.
+Memory consumption went from 152.1 MB to 146.1 MB.
+Total: 11.201500 ms (FindLiveObjects: 0.722300 ms CreateObjectMapping: 0.719800 ms MarkObjects: 6.394500 ms  DeleteObjects: 3.362400 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7332.289788 seconds.
-  path: Assets/Scripts/Character.cs
-  importAddress: Guid(04508007c819a04469c6525c3b1a5353) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Scripts/Character.cs using Guid(04508007c819a04469c6525c3b1a5353) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '689937feca92fc18a4fcd6398c008e2d') in 0.05674487 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2b5f9094c69768ab608e394c93ae61b8 DependenciesID=4ec8ff4c0caf05bda90e3e1898bcd3b7 StaticDependenciesID=7f6cf3ddafbf65fa39a4e350c6985891 
+  Time since last request: 2795.510369 seconds.
+  path: Assets/Settings/DefaultVolumeProfile.asset
+  importAddress: Guid(ab09877e2e707104187f6f83e2f62510) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Settings/DefaultVolumeProfile.asset using Guid(ab09877e2e707104187f6f83e2f62510) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'e7d83a78eaa2f84a600881666b27cfb2') in 0.0731564 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=dae4dd670f704f59ee3db949efdb225f DependenciesID=b0e1e9e18211bee1b4de4063f4801bd2 StaticDependenciesID=9892a9d247dd693c6d165680497ab331 
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/crate.png
-  importAddress: Guid(818f13eda12d6f84a8ff6be90154c5d5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Textures/crate.png using Guid(818f13eda12d6f84a8ff6be90154c5d5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'ef96ff98d9becb76963ac74d75bdc7b3') in 0.043619376 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2f68fe7b41d2dc11219e01d1e0caad78 DependenciesID=71f5f02ab9791a421f846b4c6f6bbdcf StaticDependenciesID=38faed6824785159e76b9d5840c1b167 
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000020 seconds.
-  path: Assets/InputSystem_Actions.inputactions
-  importAddress: Guid(052faaac586de48259a63d0c4782560b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/InputSystem_Actions.inputactions using Guid(052faaac586de48259a63d0c4782560b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter)UpdateMenuTitleForLanguage: 10
- -> (Import Result ID: 'cd646220c74b6040009a119b8f78351b') in 0.13239403 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=37e487f0a9e40bd606815fd7cc9612d5 DependenciesID=1b8ab04da88fd691b313807a2c1d9e4f StaticDependenciesID=c36cd04f781f9ac5b59633d29ac37722 
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+  path: Assets/Arm.controller
+  importAddress: Guid(f5ed118e631d6c24cbc567253ec2f9dc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Arm.controller using Guid(f5ed118e631d6c24cbc567253ec2f9dc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '4bf020796a5471c1dc820d436cbe9fc4') in 0.0117565 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ace1ee62bce57b7f1cb60ae44f5829b8 DependenciesID=2cd61ad6c8a2b037b5d47e0d92b257bc StaticDependenciesID=b3add09d1899a72ca92f7d09d58cf4cb 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Settings/SampleSceneProfile.asset
-  importAddress: Guid(10fc4df2da32a41aaa32d77bc913491c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Settings/SampleSceneProfile.asset using Guid(10fc4df2da32a41aaa32d77bc913491c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'fd5cd4d4ce1efda89a01c3595ddfe42e') in 0.002545205 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=1c5f08a1c344ab51eab17a71487bad05 DependenciesID=0824b9575eae3b849e62fb7b30b48fe9 StaticDependenciesID=55bf1cabae534194a1630bd327d14eae 
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Scripts/AltCharecterMovement.cs
-  importAddress: Guid(342cd13ab00b20cebb7bcaa65980eea3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Scripts/AltCharecterMovement.cs using Guid(342cd13ab00b20cebb7bcaa65980eea3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '1b62956bbd6c7878c0ef9a5c58685149') in 0.001578342 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=884063ebed95282b53fe12101bd75a87 DependenciesID=6c7618112b8f6d2b9d8509def59d3a87 StaticDependenciesID=09f1a224131e40307f475d94d6616ae4 
+  Time since last request: 0.000018 seconds.
+  path: Assets/Scripts/Enemy.cs
+  importAddress: Guid(6c91cf9819dd0b74ea264b3f236803a7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Enemy.cs using Guid(6c91cf9819dd0b74ea264b3f236803a7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'b7138981fe51ec4c6efe7581a3ac638b') in 0.016729 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=8883e0257afa3babbe0cb0811bf0a714 DependenciesID=67e0d340869f87e70035d87d3a874310 StaticDependenciesID=24afceed06f5dba580959e3637e6d9ff 
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/TutorialInfo/Icons/URP.png
-  importAddress: Guid(727a75301c3d24613a3ebcec4a24c2c8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TutorialInfo/Icons/URP.png using Guid(727a75301c3d24613a3ebcec4a24c2c8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '040b8fdaeee465e0682cb20e2ce3cd9d') in 0.006351142 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=fc6dd65c83bb3243d396e9aecf595adf DependenciesID=adf54612315c54641c0086e400d661f4 StaticDependenciesID=87857bce5b5d2f59bec3089eac1f2769 
+  Time since last request: 0.000017 seconds.
+  path: Assets/Idle.anim
+  importAddress: Guid(eb4871e981a2965468cdb0ac13061751) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Idle.anim using Guid(eb4871e981a2965468cdb0ac13061751) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '28e0f72d36ae8c470629f4aa3db4b014') in 0.0267049 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2b0dcb67896ed915b10dacddf51b0f7a DependenciesID=521505a878b71fca7a8af2c29e17ad81 StaticDependenciesID=119460255848ac1d96f710bca880ca48 
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Settings/Mobile_Renderer.asset
-  importAddress: Guid(65bc7dbf4170f435aa868c779acfb082) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Settings/Mobile_Renderer.asset using Guid(65bc7dbf4170f435aa868c779acfb082) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'e88d5adbaee4aab4f0361169a795bbc1') in 0.019927289 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=e8b6129d540ad6306c2a99273cd9670a DependenciesID=88d28c398437b7150d5c13434a61b715 StaticDependenciesID=c2fb2037d01ddcc0911d42b465527554 
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000026 seconds.
+  path: Assets/TutorialInfo/Layout.wlt
+  importAddress: Guid(eabc9546105bf4accac1fd62a63e88e6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TutorialInfo/Layout.wlt using Guid(eabc9546105bf4accac1fd62a63e88e6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: 'c89c5414efbe4d3ee14d51812626ec23') in 0.0100406 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ba940b11a4a7dc6f4f206879b94ac809 DependenciesID=7727a2ae2d5e5898abd39aebb57d9dbd StaticDependenciesID=8fc76c5d890840b1ecd6a3fa413f5d98 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Materials/TestWeirdness.mat
+  importAddress: Guid(c57fc61943b3ba048ad9a96cb3fa24cb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Materials/TestWeirdness.mat using Guid(c57fc61943b3ba048ad9a96cb3fa24cb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '856fc6d47684b2d150c122dc8f8b654f') in 0.028288 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=e65ece24b08a13bce63096cf053e117f DependenciesID=bdf9d71596a87464fdbc436d61682e0f StaticDependenciesID=d9653e74ce75562ff64456c818542f45 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
-SDL leaked 2 allocations
-Turn on UNITY_SDL_ALLOCATION_TRACKING for detailed information.
-Vulkan PSO: data extracted [new size=15840, old size=15840, incomplete=0]
-Vulkan PSO: Pipeline cache has not changed skipping save handle[b339be90]
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Settings/PC_Renderer.asset
+  importAddress: Guid(f288ae1f4751b564a96ac7587541f7a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Settings/PC_Renderer.asset using Guid(f288ae1f4751b564a96ac7587541f7a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '41db5eb14f774305b1ad6b8e90f04e14') in 0.0459294 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=56997cca8efed101856626eb2bf9a2d4 DependenciesID=2befec61041d72b8a5b8c0d20991c443 StaticDependenciesID=2c3f6972d0f296b116fd4923e143a841 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Scripts/PlayerMovement.cs
+  importAddress: Guid(57b0dc6a8a8c93d4495efc991baf8a15) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/PlayerMovement.cs using Guid(57b0dc6a8a8c93d4495efc991baf8a15) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (Import Result ID: '4f59b2857af608c05110c3111dff8ef8') in 0.0089007 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=be56a2cee9c27316e7caf731f34d3733 DependenciesID=1cde7a5875aa4457ce0756ce36b5d0c9 StaticDependenciesID=029db60e632bf4604d0ee1ba2b92aee0 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Crate (2).fbx
+  importAddress: Guid(e809e4c78d37b514d9cf041b3d1d27e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Crate (2).fbx using Guid(e809e4c78d37b514d9cf041b3d1d27e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '588589d6845c993ebe69bd146891085b') in 2.0349806 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=8a906c0c1af16459ad8703d3734ac904 DependenciesID=ffaa2f9385473a4be385b8ac5b93dcc9 StaticDependenciesID=2359cd7d0f5e7d625c778402d39796dd 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-RK7J-EGEK-UJAK-Y22E-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474100020736-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
+Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.716 seconds
+Domain Reload Profiling: 1432ms
+	BeginReloadAssembly (233ms)
+		DisableScriptedObjects (26ms)
+		CreateAndSetChildDomain (68ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (56ms)
+	LoadAllAssembliesAndSetupDomain (381ms)
+		LoadAssemblies (303ms)
+		AnalyzeDomain (158ms)
+			TypeCache.Refresh (9ms)
+			BuildScriptInfoCaches (136ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (716ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (150ms)
+			ProcessInitializeOnLoadAttributes (338ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
+			AfterProcessingInitializeOnLoad (6ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6546 unused Assets / (5.0 MB). Loaded Objects now: 7440.
+Memory consumption went from 162.4 MB to 157.4 MB.
+Total: 7.154900 ms (FindLiveObjects: 0.698300 ms CreateObjectMapping: 0.280700 ms MarkObjects: 4.093100 ms  DeleteObjects: 2.082200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
+Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.645 seconds
+Domain Reload Profiling: 1262ms
+	BeginReloadAssembly (172ms)
+		DisableScriptedObjects (4ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (46ms)
+	LoadAllAssembliesAndSetupDomain (359ms)
+		LoadAssemblies (284ms)
+		AnalyzeDomain (149ms)
+			TypeCache.Refresh (5ms)
+			BuildScriptInfoCaches (134ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (645ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (317ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+			AfterProcessingInitializeOnLoad (6ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6544 unused Assets / (5.2 MB). Loaded Objects now: 7443.
+Memory consumption went from 164.8 MB to 159.6 MB.
+Total: 7.133200 ms (FindLiveObjects: 0.750700 ms CreateObjectMapping: 0.265500 ms MarkObjects: 4.222900 ms  DeleteObjects: 1.893600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-RK7J-EGEK-UJAK-Y22E-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474100020736-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
+Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Settings.Tests.dll at Library/ScriptAssemblies/Unity.Settings.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Unnamed Project 4-12-26
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.880 seconds
+Domain Reload Profiling: 1743ms
+	BeginReloadAssembly (204ms)
+		DisableScriptedObjects (5ms)
+		CreateAndSetChildDomain (50ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (535ms)
+		LoadAssemblies (385ms)
+		AnalyzeDomain (234ms)
+			TypeCache.Refresh (18ms)
+				TypeCache.ScanAssembly (8ms)
+			BuildScriptInfoCaches (205ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (880ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (142ms)
+			ProcessInitializeOnLoadAttributes (421ms)
+			ProcessInitializeOnLoadMethodAttributes (115ms)
+			AfterProcessingInitializeOnLoad (8ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Unloading 43 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6933 unused Assets / (8.0 MB). Loaded Objects now: 7817.
+Memory consumption went from 174.8 MB to 166.8 MB.
+Total: 12.332400 ms (FindLiveObjects: 1.160800 ms CreateObjectMapping: 0.461900 ms MarkObjects: 6.556300 ms  DeleteObjects: 4.152700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
+Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Settings.Tests.dll at Library/ScriptAssemblies/Unity.Settings.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.751 seconds
+Domain Reload Profiling: 1370ms
+	BeginReloadAssembly (164ms)
+		DisableScriptedObjects (4ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (368ms)
+		LoadAssemblies (275ms)
+		AnalyzeDomain (159ms)
+			TypeCache.Refresh (5ms)
+			BuildScriptInfoCaches (145ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (751ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (121ms)
+			ProcessInitializeOnLoadAttributes (366ms)
+			ProcessInitializeOnLoadMethodAttributes (105ms)
+			AfterProcessingInitializeOnLoad (7ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Unloading 43 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6933 unused Assets / (7.8 MB). Loaded Objects now: 7820.
+Memory consumption went from 177.6 MB to 169.8 MB.
+Total: 12.362300 ms (FindLiveObjects: 0.977000 ms CreateObjectMapping: 1.141200 ms MarkObjects: 6.469200 ms  DeleteObjects: 3.774400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+Assertion failed on expression: 'm_Shader == nullptr'
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
+Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Settings.Tests.dll at Library/ScriptAssemblies/Unity.Settings.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.717 seconds
+Domain Reload Profiling: 1342ms
+	BeginReloadAssembly (168ms)
+		DisableScriptedObjects (4ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (365ms)
+		LoadAssemblies (269ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (8ms)
+			BuildScriptInfoCaches (146ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (717ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (141ms)
+			ProcessInitializeOnLoadAttributes (349ms)
+			ProcessInitializeOnLoadMethodAttributes (83ms)
+			AfterProcessingInitializeOnLoad (6ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Unloading 43 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6933 unused Assets / (7.1 MB). Loaded Objects now: 7823.
+Memory consumption went from 180.3 MB to 173.2 MB.
+Total: 8.277200 ms (FindLiveObjects: 0.758400 ms CreateObjectMapping: 0.309300 ms MarkObjects: 4.652300 ms  DeleteObjects: 2.556700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-RK7J-EGEK-UJAK-Y22E-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474100020736-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly DocCodeExamples.dll at Library/ScriptAssemblies/DocCodeExamples.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.BurstCompatibilityGen.dll at Library/ScriptAssemblies/Unity.Collections.BurstCompatibilityGen.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.DocCodeSamples.dll at Library/ScriptAssemblies/Unity.Collections.DocCodeSamples.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.PerformanceTests.dll at Library/ScriptAssemblies/Unity.Collections.PerformanceTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.dll at Library/ScriptAssemblies/Unity.Collections.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Collections.Tests.Playmode.dll at Library/ScriptAssemblies/Unity.Collections.Tests.Playmode.dll not valid. Loading of assembly skipped.
+Assembly Unity.InputSystem.IntegrationTests.dll at Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Mathematics.Tests.dll at Library/ScriptAssemblies/Unity.Mathematics.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Editor.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Multiplayer.Center.Tests.dll at Library/ScriptAssemblies/Unity.Multiplayer.Center.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Nuget.Mono-Cecil.dll at Library/ScriptAssemblies/Unity.Nuget.Mono-Cecil.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.PathTracing.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.PathTracing.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Core.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Config.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Editor.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.RenderPipelines.Universal.Runtime.Tests.dll at Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Searcher.EditorTests.dll at Library/ScriptAssemblies/Unity.Searcher.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Settings.Tests.dll at Library/ScriptAssemblies/Unity.Settings.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.ShaderGraph.Editor.Tests.dll at Library/ScriptAssemblies/Unity.ShaderGraph.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Editor.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.TextMeshPro.Tests.dll at Library/ScriptAssemblies/Unity.TextMeshPro.Tests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.UnifiedRayTracing.Editor.Tests.dll at Library/ScriptAssemblies/Unity.UnifiedRayTracing.Editor.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.Common.Tests.dll at Library/ScriptAssemblies/UnityEditor.UI.Common.Tests.dll not valid. Loading of assembly skipped.
+Assembly UnityEditor.UI.EditorTests.dll at Library/ScriptAssemblies/UnityEditor.UI.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly UnityEngine.UI.Tests.dll at Library/ScriptAssemblies/UnityEngine.UI.Tests.dll not valid. Loading of assembly skipped.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.660 seconds
+Domain Reload Profiling: 1262ms
+	BeginReloadAssembly (165ms)
+		DisableScriptedObjects (4ms)
+		CreateAndSetChildDomain (41ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (352ms)
+		LoadAssemblies (264ms)
+		AnalyzeDomain (154ms)
+			TypeCache.Refresh (5ms)
+			BuildScriptInfoCaches (139ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (660ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (318ms)
+			ProcessInitializeOnLoadMethodAttributes (86ms)
+			AfterProcessingInitializeOnLoad (7ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Unloading 43 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6933 unused Assets / (8.5 MB). Loaded Objects now: 7826.
+Memory consumption went from 183.0 MB to 174.6 MB.
+Total: 10.701900 ms (FindLiveObjects: 0.734100 ms CreateObjectMapping: 0.645900 ms MarkObjects: 5.021400 ms  DeleteObjects: 4.299700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
