@@ -66,7 +66,7 @@ public class AltCharecterMovement : MonoBehaviour
         if (jumpBufferTime > 0)
             jumpBufferTime -= Time.deltaTime;
     }
-   
+   // Works?
     void FixedUpdate()
     {
         // Handle Jump

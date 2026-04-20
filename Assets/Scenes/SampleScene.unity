@@ -1013,7 +1013,7 @@ MonoBehaviour:
   friction: 4
   stopForce: 1
   jumpForce: 8
-  gravity: -16
+  gravity: -20
   airAcc: 16
   airResistance: 1.2
   maxAirVel: 20
