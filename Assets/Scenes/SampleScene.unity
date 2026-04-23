@@ -1135,6 +1135,10 @@ MonoBehaviour:
   grappleMask:
     serializedVersion: 2
     m_Bits: 64
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  attackDamage: 2
   grappleDistance: 100
   grappleSpeed: 80
   grappleCoolDown: 1.2

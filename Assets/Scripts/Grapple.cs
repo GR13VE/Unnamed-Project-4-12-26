@@ -9,6 +9,9 @@ public class Grapple : MonoBehaviour
     public Transform grappleCast;
     public CharacterController player;
     public LayerMask grappleMask;
+    public LayerMask attackLayer;
+    public int attackDamage = 2;
+
     public float grappleDistance = 40f;
     public float grappleSpeed = 40f;
     public float grappleCoolDown = 2f;
@@ -17,6 +20,7 @@ public class Grapple : MonoBehaviour
     RaycastHit grapplePoint;
     Vector3 grappleDir;
     bool isGrappling = false;
+    bool hitEnemy = false;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +28,14 @@ public class Grapple : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && grappleCoolDownTimer <= 0)
         {
             grappleCoolDownTimer = grappleCoolDown;
-            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, grappleMask))
+            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, attackLayer))
+            {
+                grappleDir = grapplePoint.point - grappleCast.position;
+                print("Hit Enemy: " + grapplePoint.point + "____ Direction: " + grappleDir );
+                isGrappling = true;
+                hitEnemy = true;
+            }
+            else if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, grappleMask))
             {
                 grappleDir = grapplePoint.point - grappleCast.position;
                 print("Hit: " + grapplePoint.point + "____ Direction: " + grappleDir );
@@ -43,6 +54,14 @@ public class Grapple : MonoBehaviour
             float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
             print(distance);
             isGrappling = false;
+            if (hitEnemy)
+            {
+            if (grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
+            {
+                T.TakeDamage(attackDamage);
+                print("Grapple Target");
+            }
+            }
         }
     }
 }
