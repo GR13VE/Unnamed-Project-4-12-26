@@ -20,6 +20,15 @@ public class AltCharecterMovement : MonoBehaviour
     public float maxAirVel = 42f; // Limits arial speed added every fixed update
     public float maxFallVel = -28f;
 
+    [Header("Grapple")]
+    public float grappleDistance = 40f;
+    public float grappleSpeed = 40f;
+    public float maxGrappleSpeed = 48f;
+    RaycastHit grapplePoint;
+    Vector3 grappleDir;
+    bool isGrappling = false;
+
+
     [Header("Buffers")]
     public float jumpBuffer = .1f; // Counts early jump presses
     private float jumpBufferTime = 0f;
@@ -27,7 +36,11 @@ public class AltCharecterMovement : MonoBehaviour
     [Header("Setup")]
     public CharacterController controller;
     public Transform groundCheck;
+    public Transform grappleCast;
+
     public LayerMask groundMask;
+
+
 
     private float groundDist = .08f;
     private bool isGrounded;
@@ -69,6 +82,7 @@ public class AltCharecterMovement : MonoBehaviour
    // Works?
     void FixedUpdate()
     {
+        velocity = controller.velocity;
         // Handle Jump
         if (isJumping)
         {
@@ -76,12 +90,12 @@ public class AltCharecterMovement : MonoBehaviour
             isJumping = false;
         }
 
+
         // Add Gravity
         if(isGrounded && velocity.y < 0)
             velocity.y = gravity;
         else
             velocity.y += gravity * Time.fixedDeltaTime;
-
         // Handel movement
         if (!isGrounded)
             velocity = move(wishDirection, velocity, airAcc, maxAirVel, airResistance); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
