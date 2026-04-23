@@ -360,7 +360,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 420
+  maxTilt: 1.6
+  tiltVelocityMult: 0.24
+  maxFovChange: 0
+  fovSmoothing: 0.1
+  maxVel: 40
   playerBody: {fileID: 1089791847}
+  player: {fileID: 1089791846}
+  cam: {fileID: 330585545}
 --- !u!1001 &358571118
 PrefabInstance:
   m_ObjectHideFlags: 0
