@@ -13,13 +13,15 @@ public class Grapple : MonoBehaviour
     public int attackDamage = 2;
 
     public float grappleDistance = 40f;
-    public float grappleSpeed = 40f;
+    public float initialGrappleSpeed = 40f;
+    public float continuosGrappleSpeed = 10f;
     public float grappleCoolDown = 2f;
     private float grappleCoolDownTimer = 0f;
 
     RaycastHit grapplePoint;
     Vector3 grappleDir;
     bool isGrappling = false;
+    bool initiatedGrapple = false;
     bool hitEnemy = false;
 
     // Update is called once per frame
@@ -33,35 +35,48 @@ public class Grapple : MonoBehaviour
                 grappleDir = grapplePoint.point - grappleCast.position;
                 print("Hit Enemy: " + grapplePoint.point + "____ Direction: " + grappleDir );
                 isGrappling = true;
+                initiatedGrapple = true;
                 hitEnemy = true;
             }
             else if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, grappleMask))
             {
                 grappleDir = grapplePoint.point - grappleCast.position;
                 print("Hit: " + grapplePoint.point + "____ Direction: " + grappleDir );
+                initiatedGrapple = true;
                 isGrappling = true;
             }
         }
-        else if(grappleCoolDownTimer > 0)
+        else if(isGrappling && Input.GetButtonUp("Fire2"))
+        {
+            grappleCoolDownTimer = grappleCoolDown;
+            isGrappling = false;
+        }
+        else if( grappleCoolDownTimer > 0)
             grappleCoolDownTimer -= Time.deltaTime;
     }
 
     void FixedUpdate()
     {
-        if (isGrappling)
+        if (initiatedGrapple)
         {
-            player.Move(Vector3.Normalize(grappleDir) * grappleSpeed * Time.fixedDeltaTime);
+            player.Move(Vector3.Normalize(grappleDir) * initialGrappleSpeed * Time.fixedDeltaTime);
             float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
-            print(distance);
-            isGrappling = false;
-            if (hitEnemy)
-            {
-            if (grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
+            print("Initiated Grapple: " + distance);
+            initiatedGrapple = false;
+            if (hitEnemy && grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
             {
                 T.TakeDamage(attackDamage);
                 print("Grapple Target");
+                isGrappling = false;
+                grappleCoolDownTimer = grappleCoolDown;
             }
-            }
+        }
+        else if (isGrappling)
+        {
+            grappleDir = grapplePoint.point - grappleCast.position;
+            player.Move(Vector3.Normalize(grappleDir) * continuosGrappleSpeed * Time.fixedDeltaTime);
+            float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
+            print(distance);
         }
     }
 }

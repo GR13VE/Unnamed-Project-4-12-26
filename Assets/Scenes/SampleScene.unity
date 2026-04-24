@@ -1147,8 +1147,9 @@ MonoBehaviour:
     m_Bits: 128
   attackDamage: 2
   grappleDistance: 100
-  grappleSpeed: 80
-  grappleCoolDown: 1.2
+  initialGrappleSpeed: 40
+  continuosGrappleSpeed: 20
+  grappleCoolDown: 1
 --- !u!1 &1110577355
 GameObject:
   m_ObjectHideFlags: 0
