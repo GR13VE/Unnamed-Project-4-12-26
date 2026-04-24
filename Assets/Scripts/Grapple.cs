@@ -5,18 +5,20 @@ using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 public class Grapple : MonoBehaviour
 {
-
-    public Transform grappleCast;
-    public CharacterController player;
-    public LayerMask grappleMask;
-    public LayerMask attackLayer;
-    public int attackDamage = 2;
+    [Header("Grapple")]
 
     public float grappleDistance = 40f;
     public float initialGrappleSpeed = 40f;
     public float continuosGrappleSpeed = 10f;
+    public int attackDamage = 2;
     public float grappleCoolDown = 2f;
     private float grappleCoolDownTimer = 0f;
+
+    [Header("Setup")]
+    public Transform grappleCast;
+    public CharacterController player;
+    public LayerMask grappleMask;
+    public LayerMask attackLayer;
 
     RaycastHit grapplePoint;
     Vector3 grappleDir;
@@ -62,11 +64,13 @@ public class Grapple : MonoBehaviour
             player.Move(Vector3.Normalize(grappleDir) * initialGrappleSpeed * Time.fixedDeltaTime);
             float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
             print("Initiated Grapple: " + distance);
-            initiatedGrapple = false;
+            initiatedGrapple = false; // Allows for different start up speed
+
+            // Handle damage enemy
             if (hitEnemy && grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
             {
                 T.TakeDamage(attackDamage);
-                print("Grapple Target");
+                print("Grappled Target");
                 isGrappling = false;
                 grappleCoolDownTimer = grappleCoolDown;
             }
@@ -75,8 +79,6 @@ public class Grapple : MonoBehaviour
         {
             grappleDir = grapplePoint.point - grappleCast.position;
             player.Move(Vector3.Normalize(grappleDir) * continuosGrappleSpeed * Time.fixedDeltaTime);
-            float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
-            print(distance);
         }
     }
 }
