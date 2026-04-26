@@ -90,12 +90,12 @@ public class AltCharecterMovement : MonoBehaviour
             isJumping = false;
         }
 
-
         // Add Gravity
         if(isGrounded && velocity.y < 0)
             velocity.y = gravity;
         else
             velocity.y += gravity * Time.fixedDeltaTime;
+
         // Handel movement
         if (!isGrounded)
             velocity = move(wishDirection, velocity, airAcc, maxAirVel, airResistance); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.

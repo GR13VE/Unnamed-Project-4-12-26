@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 120935372}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GrappleCast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ MonoBehaviour:
   maxTilt: 1.6
   tiltVelocityMult: 0.24
   maxFovChange: 0
-  fovSmoothing: 0.1
+  fovSmoothing: 0
   maxVel: 40
   playerBody: {fileID: 1089791847}
   player: {fileID: 1089791846}
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 623140614}
   - component: {fileID: 623140613}
   - component: {fileID: 623140616}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 1083842759}
   - component: {fileID: 1083842758}
   - component: {fileID: 1083842757}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,6 +1002,7 @@ GameObject:
   - component: {fileID: 1089791848}
   - component: {fileID: 1089791849}
   - component: {fileID: 1089791850}
+  - component: {fileID: 1089791851}
   m_Layer: 8
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -1137,6 +1138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2845329372e166bb96a31cfb287241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  grappleDistance: 100
+  initialGrappleSpeed: 40
+  continuosGrappleSpeed: 20
+  attackDamage: 2
+  grappleCoolDown: 0.8
   grappleCast: {fileID: 120935372}
   player: {fileID: 1089791846}
   grappleMask:
@@ -1145,11 +1151,29 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 128
-  attackDamage: 2
-  grappleDistance: 100
-  initialGrappleSpeed: 40
-  continuosGrappleSpeed: 20
-  grappleCoolDown: 1
+--- !u!114 &1089791851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089791844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bafb7ac9cd7cfe9a94ac06333d4004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damage: 4
+  pushForce: 20
+  areaOfEffect: 16
+  coolDown: 1
+  crossBow: {fileID: 120935372}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1110577355
 GameObject:
   m_ObjectHideFlags: 0
@@ -6885,7 +6909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1997751598}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

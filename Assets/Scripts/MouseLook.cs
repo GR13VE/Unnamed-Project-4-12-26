@@ -35,11 +35,11 @@ public class MouseLook : MonoBehaviour
             tilt = -maxTilt;
         else if(tilt > maxTilt)
             tilt = maxTilt;
-        print(tilt);
+        //print(tilt);
 
         // Handle Fov change based on velocity
         float speed = player.velocity.magnitude;
-        print(speed + "____" + maxVel);
+        //print(speed + "____" + maxVel);
         cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, 60f + Mathf.Lerp(speed,maxVel, speed/maxVel), fovSmoothing);
 
         xRotation -= mouseY;

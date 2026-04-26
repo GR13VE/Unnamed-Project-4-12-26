@@ -947,11 +947,11 @@ PlayerSettings:
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   enableDirectStorage: 0
-  cloudProjectId: bbb75ee4-722e-4f5c-a5aa-297b5169e03b
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Unnamed Project 4-12-26 2026-04-14_13-20-30
-  organizationId: strife-aaf0bb4c-c8bb-4f4e-aec7-1d38a7e0f914
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
