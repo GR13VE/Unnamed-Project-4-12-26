@@ -7,6 +7,7 @@ public class flyingEnemy : MonoBehaviour
     public float maxAxx = 12f;
     public float turnRadius = 26f;
     public float correctionForce = 1.2f;
+    public float playerYAddition = 1.4f;
 
     public int damage = 1;
 
@@ -35,6 +36,7 @@ public class flyingEnemy : MonoBehaviour
         this.player = GameObject.FindWithTag("Player"); // Current player position
 
         wishDirection = player.transform.position - enemy.position;
+        wishDirection.y += playerYAddition;
         angleToPlayer = Vector3.Angle(wishDirection, enemy.forward);
 
         controller.Move(Accelerate(Vector3.Normalize(wishDirection), controller.velocity, speed, maxAxx) * Time.fixedDeltaTime);

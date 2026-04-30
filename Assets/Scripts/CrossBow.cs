@@ -4,6 +4,7 @@ public class CrossBow : MonoBehaviour
 {
     public int damage = 4;
     public float pushForce = 6f;
+    public float minPushForce = 2f;
     public float areaOfEffect = 4f;
     public float coolDown = 1f;
     public Transform crossBow;
@@ -26,16 +27,16 @@ public class CrossBow : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(hit.point, areaOfEffect, playerMask);
                 foreach(var currentHit in hitColliders)
                 {
-                    print("Sphere Hit: " + currentHit);
                     if(currentHit.transform.TryGetComponent<CharacterController>(out CharacterController controller))
                     {
                         Vector3 pushDir = Vector3.Normalize(currentHit.transform.position - hit.point);
-                        print("Push Player: " + pushDir * pushForce);
-                        controller.Move(pushDir * pushForce * Time.deltaTime);
+                        float distance = hit.distance;
+                        print("Push Player: " + pushDir + "____" + pushDir * Mathf.Max(pushForce* areaOfEffect/distance  * .1f, minPushForce) + "__ Distance: " + distance);
+                        controller.Move(pushDir * pushForce * (Mathf.Max(areaOfEffect/distance, minPushForce) * .1f) * Time.deltaTime);
                     }
                 }
-                Collider[] hitColliderz = Physics.OverlapSphere(hit.point, areaOfEffect, enemyMask);
-                foreach(var currentHit in hitColliderz)
+                Collider[] enemyHitColliders = Physics.OverlapSphere(hit.point, areaOfEffect, enemyMask);
+                foreach(var currentHit in enemyHitColliders)
                 {
                     if(currentHit.transform.TryGetComponent<Enemy>(out Enemy target))
                     {
