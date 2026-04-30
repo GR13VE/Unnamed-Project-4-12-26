@@ -4,3 +4,4 @@
 /UserSettings
 *.csproj
 *.slnx
+.vscode/settings.json

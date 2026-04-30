@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class CrossBow : MonoBehaviour
 {
-    public float damage = 4f;
+    public int damage = 4;
     public float pushForce = 6f;
     public float areaOfEffect = 4f;
     public float coolDown = 1f;
     public Transform crossBow;
     public LayerMask groundMask;
     public LayerMask playerMask;
+    public LayerMask enemyMask;
 
     RaycastHit hit;
     RaycastHit sphereHit;
@@ -31,6 +32,15 @@ public class CrossBow : MonoBehaviour
                         Vector3 pushDir = Vector3.Normalize(currentHit.transform.position - hit.point);
                         print("Push Player: " + pushDir * pushForce);
                         controller.Move(pushDir * pushForce * Time.deltaTime);
+                    }
+                }
+                Collider[] hitColliderz = Physics.OverlapSphere(hit.point, areaOfEffect, enemyMask);
+                foreach(var currentHit in hitColliderz)
+                {
+                    if(currentHit.transform.TryGetComponent<Enemy>(out Enemy target))
+                    {
+                        target.TakeDamage(damage);
+                        print("Hit Enemy");
                     }
                 }
             }

@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 1089791851}
   m_Layer: 8
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,6 +1174,9 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1110577355
 GameObject:
   m_ObjectHideFlags: 0
