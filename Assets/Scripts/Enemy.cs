@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float currentHealth, maxHealth;
+    public int currentHealth, maxHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float dmg)
+    public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
 
