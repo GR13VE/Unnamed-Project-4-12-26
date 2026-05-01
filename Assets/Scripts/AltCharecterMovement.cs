@@ -20,14 +20,6 @@ public class AltCharecterMovement : MonoBehaviour
     public float maxAirVel = 42f; // Limits arial speed added every fixed update
     public float maxFallVel = -28f;
 
-    [Header("Grapple")]
-    public float grappleDistance = 40f;
-    public float grappleSpeed = 40f;
-    public float maxGrappleSpeed = 48f;
-    RaycastHit grapplePoint;
-    Vector3 grappleDir;
-    bool isGrappling = false;
-
 
     [Header("Buffers")]
     public float jumpBuffer = .1f; // Counts early jump presses
@@ -39,7 +31,7 @@ public class AltCharecterMovement : MonoBehaviour
     public Transform grappleCast;
 
     public LayerMask groundMask;
-
+    public string gravityChange = "GravityShifter";
 
 
     private float groundDist = .08f;
@@ -48,7 +40,7 @@ public class AltCharecterMovement : MonoBehaviour
     // Input Handling
     private Vector3 wishDirection; // Desired direction for the player
     private bool isJumping = false;
-
+    bool isNormalGravity = true;
     private Vector3 velocity;
 
     // Update is called once per frame
@@ -79,22 +71,35 @@ public class AltCharecterMovement : MonoBehaviour
         if (jumpBufferTime > 0)
             jumpBufferTime -= Time.deltaTime;
     }
-   // Works?
+   // Works
     void FixedUpdate()
     {
         velocity = controller.velocity;
         // Handle Jump
         if (isJumping)
         {
-            velocity.y = jumpForce;
-            isJumping = false;
+            if (isNormalGravity)
+            {
+                velocity.y = jumpForce;
+                isJumping = false;
+            }
+            else
+            {
+                velocity.y = -jumpForce;
+                isJumping = false;
+            }
         }
 
         // Add Gravity
-        if(isGrounded && velocity.y < 0)
+        if(isGrounded && velocity.y < 0 && isNormalGravity)
             velocity.y = gravity;
-        else
+        else if(isNormalGravity)
             velocity.y += gravity * Time.fixedDeltaTime;
+
+        if(!isNormalGravity && isGrounded && velocity.y > 0)
+            velocity.y = -gravity;
+        else if(!isNormalGravity)
+            velocity.y -= gravity * Time.fixedDeltaTime;
 
         // Handel movement
         if (!isGrounded)
@@ -103,6 +108,12 @@ public class AltCharecterMovement : MonoBehaviour
             velocity = move(wishDirection, velocity, groundAcc, maxGroundVel, friction);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask); // Makes a sphere at groundCheck to detect ground collisions
+        if(isGrounded){
+            Collider[] hitColliders = Physics.OverlapSphere(groundCheck.position, groundDist, groundMask);
+            foreach(var hitCollider in hitColliders)
+                if(hitCollider.tag == gravityChange)
+                    flipPlayer();
+        }
 
         controller.Move(velocity * Time.fixedDeltaTime);
     }
@@ -132,5 +143,11 @@ public class AltCharecterMovement : MonoBehaviour
             prevVel *= Mathf.Max(speed - drop, 0) / speed;
 
         return Accelerate(accelDir, prevVel, acc, maxAcc);
+    }
+
+    public void flipPlayer(){
+        print("Flip Player");
+        isNormalGravity = !isNormalGravity;
+        controller.transform.Rotate(0, 0, 180);
     }
 }
