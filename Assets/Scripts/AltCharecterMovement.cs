@@ -1,6 +1,7 @@
 using System;
 using System.Numerics;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -10,7 +11,6 @@ public class AltCharecterMovement : MonoBehaviour
     public float groundAcc = 8f;
     public float maxGroundVel = 38f; // Mostly limits diagonal player speed added each fixed update
     public float friction = 3.6f;
-    public float stopForce = 4f; // Multiplies friction added to player when stopped
     public float jumpForce = 2.6f;
 
     [Header("Arial Movement")]
@@ -42,6 +42,7 @@ public class AltCharecterMovement : MonoBehaviour
     private bool isJumping = false;
     bool isNormalGravity = true;
     private Vector3 velocity;
+    private Vector3 gravityVector = new Vector3(0, -1, 0); // Start with default gravity;
 
     // Update is called once per frame
     void Update()
@@ -75,31 +76,19 @@ public class AltCharecterMovement : MonoBehaviour
     void FixedUpdate()
     {
         velocity = controller.velocity;
-        // Handle Jump
+
+                // Handle Jump
         if (isJumping)
         {
-            if (isNormalGravity)
-            {
-                velocity.y = jumpForce;
-                isJumping = false;
-            }
-            else
-            {
-                velocity.y = -jumpForce;
-                isJumping = false;
-            }
+            velocity.y = jumpForce;
+            isJumping = false;
         }
 
         // Add Gravity
-        if(isGrounded && velocity.y < 0 && isNormalGravity)
+        if(isGrounded && velocity.y < 0)
             velocity.y = gravity;
-        else if(isNormalGravity)
+        else
             velocity.y += gravity * Time.fixedDeltaTime;
-
-        if(!isNormalGravity && isGrounded && velocity.y > 0)
-            velocity.y = -gravity;
-        else if(!isNormalGravity)
-            velocity.y -= gravity * Time.fixedDeltaTime;
 
         // Handel movement
         if (!isGrounded)
@@ -112,7 +101,10 @@ public class AltCharecterMovement : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(groundCheck.position, groundDist, groundMask);
             foreach(var hitCollider in hitColliders)
                 if(hitCollider.tag == gravityChange)
-                    flipPlayer();
+                {
+                    Vector3 gravityShiftVector = hitCollider.GetComponent<gravityShifter>().gravityShiftVector;
+                    print("GravityShifter: " + gravityShiftVector);
+                }
         }
 
         controller.Move(velocity * Time.fixedDeltaTime);
@@ -127,7 +119,7 @@ public class AltCharecterMovement : MonoBehaviour
             accVel = maxVel - projVel;
 
         Vector3 finish = prevVel + accelDir * accVel;
-        finish.y = velocity.y; // So that vertical velocity can be handed separately.
+        //finish.y = velocity.y; // So that vertical velocity can be handed separately.
         return finish;
     }
     private Vector3 move(Vector3 accelDir, Vector3 prevVel, float acc, float maxAcc, float resistance)
@@ -136,16 +128,13 @@ public class AltCharecterMovement : MonoBehaviour
         // Calculate how much friction to be applied this frame
         float drop = speed * resistance * Time.fixedDeltaTime; // If we are not giving an input apply stop force
         
-        if(accelDir.magnitude == 0) // May no longer be needed.
-            drop *= stopForce * friction;
-        
         if (speed != 0) // Avoid divide by zero
             prevVel *= Mathf.Max(speed - drop, 0) / speed;
 
         return Accelerate(accelDir, prevVel, acc, maxAcc);
     }
 
-    public void flipPlayer(){
+    public void shiftGravity(){
         print("Flip Player");
         isNormalGravity = !isNormalGravity;
         controller.transform.Rotate(0, 0, 180);
