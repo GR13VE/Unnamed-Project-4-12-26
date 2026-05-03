@@ -1,7 +1,3 @@
-using System;
-using System.Numerics;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -40,7 +36,6 @@ public class AltCharecterMovement : MonoBehaviour
     // Input Handling
     private Vector3 wishDirection; // Desired direction for the player
     private bool isJumping = false;
-    bool isNormalGravity = true;
     private Vector3 velocity;
     private Vector3 gravityVector = new Vector3(0, -1, 0); // Start with default gravity;
 
@@ -77,18 +72,18 @@ public class AltCharecterMovement : MonoBehaviour
     {
         velocity = controller.velocity;
 
-                // Handle Jump
+        // Handle Jump
         if (isJumping)
         {
-            velocity.y = jumpForce;
+            velocity += transform.up * jumpForce;
             isJumping = false;
         }
-
         // Add Gravity
-        if(isGrounded && velocity.y < 0)
-            velocity.y = gravity;
-        else
-            velocity.y += gravity * Time.fixedDeltaTime;
+        if(isGrounded && Mathf.Abs(velocity.y) <= 0)
+             velocity -=  gravity * transform.up;
+        else{
+                velocity -= gravity * Time.fixedDeltaTime * transform.up;
+        }
 
         // Handel movement
         if (!isGrounded)
@@ -104,6 +99,8 @@ public class AltCharecterMovement : MonoBehaviour
                 {
                     Vector3 gravityShiftVector = hitCollider.GetComponent<gravityShifter>().gravityShiftVector;
                     print("GravityShifter: " + gravityShiftVector);
+                    if(gravityShiftVector != Vector3.zero)
+                        shiftGravity(gravityShiftVector);
                 }
         }
 
@@ -118,9 +115,7 @@ public class AltCharecterMovement : MonoBehaviour
         if (projVel + accVel > maxVel)
             accVel = maxVel - projVel;
 
-        Vector3 finish = prevVel + accelDir * accVel;
-        //finish.y = velocity.y; // So that vertical velocity can be handed separately.
-        return finish;
+        return prevVel + accelDir * accVel;
     }
     private Vector3 move(Vector3 accelDir, Vector3 prevVel, float acc, float maxAcc, float resistance)
     {
@@ -134,9 +129,20 @@ public class AltCharecterMovement : MonoBehaviour
         return Accelerate(accelDir, prevVel, acc, maxAcc);
     }
 
-    public void shiftGravity(){
-        print("Flip Player");
-        isNormalGravity = !isNormalGravity;
-        controller.transform.Rotate(0, 0, 180);
+    public void shiftGravity(Vector3 newGravity){
+        print("Gravity SHift: " + newGravity);
+        Vector3 rotateHandle = newGravity;
+        if(gravityVector.x != newGravity.x){
+            rotateHandle.x = newGravity.x;
+            }
+        if(gravityVector.y != newGravity.y){
+            rotateHandle.y = newGravity.y;
+        }
+        if(gravityVector.z != newGravity.z)
+            rotateHandle.x = newGravity.z;
+        
+        gravityVector = newGravity;
+        controller.transform.Rotate(90 * rotateHandle.x , 0, 180 * rotateHandle.y);
     }
+
 }

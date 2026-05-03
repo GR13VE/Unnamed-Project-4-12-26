@@ -13,7 +13,6 @@ public class CrossBow : MonoBehaviour
     public LayerMask enemyMask;
 
     RaycastHit hit;
-    RaycastHit sphereHit;
     float coolDownTimer = 0f;
 
     // Update is called once per frame
