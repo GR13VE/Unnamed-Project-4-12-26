@@ -38,6 +38,7 @@ public class AltCharecterMovement : MonoBehaviour
     private bool isJumping = false;
     private Vector3 velocity;
     private Vector3 gravityVector = new Vector3(0, -1, 0); // Start with default gravity;
+    private Vector3 gravityNormal;
 
     // Update is called once per frame
     void Update()
@@ -56,9 +57,7 @@ public class AltCharecterMovement : MonoBehaviour
         else if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
-            {
                 isJumping = true;
-            }
             else
                 jumpBufferTime = jumpBuffer;
         }
@@ -72,19 +71,6 @@ public class AltCharecterMovement : MonoBehaviour
     {
         velocity = controller.velocity;
 
-        // Handle Jump
-        if (isJumping)
-        {
-            velocity += transform.up * jumpForce;
-            isJumping = false;
-        }
-        // Add Gravity
-        if(isGrounded && Mathf.Abs(velocity.y) <= 0)
-             velocity -=  gravity * transform.up;
-        else{
-                velocity -= gravity * Time.fixedDeltaTime * transform.up;
-        }
-
         // Handel movement
         if (!isGrounded)
             velocity = move(wishDirection, velocity, airAcc, maxAirVel, airResistance); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
@@ -92,17 +78,17 @@ public class AltCharecterMovement : MonoBehaviour
             velocity = move(wishDirection, velocity, groundAcc, maxGroundVel, friction);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask); // Makes a sphere at groundCheck to detect ground collisions
-        if(isGrounded){
-            Collider[] hitColliders = Physics.OverlapSphere(groundCheck.position, groundDist, groundMask);
-            foreach(var hitCollider in hitColliders)
-                if(hitCollider.tag == gravityChange)
-                {
-                    Vector3 gravityShiftVector = hitCollider.GetComponent<gravityShifter>().gravityShiftVector;
-                    print("GravityShifter: " + gravityShiftVector);
-                    if(gravityShiftVector != Vector3.zero)
-                        shiftGravity(gravityShiftVector);
-                }
+        // Handle Jump
+        if (isJumping)
+        {
+            velocity += jumpForce * -gravityVector.normalized;
+            isJumping = false;
         }
+
+        // Add Gravity
+        velocity +=  gravity* Time.fixedDeltaTime * gravityVector.normalized;
+
+        meshGravity();
 
         controller.Move(velocity * Time.fixedDeltaTime);
     }
@@ -130,7 +116,7 @@ public class AltCharecterMovement : MonoBehaviour
     }
 
     public void shiftGravity(Vector3 newGravity){
-        print("Gravity SHift: " + newGravity);
+        print("Gravity SHift: " + newGravity + " magnitude: " + newGravity.magnitude);
         Vector3 rotateHandle = newGravity;
         if(gravityVector.x != newGravity.x){
             rotateHandle.x = newGravity.x;
@@ -144,5 +130,24 @@ public class AltCharecterMovement : MonoBehaviour
         gravityVector = newGravity;
         controller.transform.Rotate(90 * rotateHandle.x , 0, 180 * rotateHandle.y);
     }
-
+    private void meshGravity()
+    {
+        float gravityDist = 10f;
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(groundCheck.position, -groundCheck.up, gravityDist, groundMask);
+        foreach(var hit in hits)
+        {
+            if(hit.transform.tag == gravityChange)
+            {
+                gravityNormal = hit.normal.normalized;
+                gravityVector = -gravityNormal;
+                //gravityVector = hit.controller.transform.position - controller.transform.position;
+                Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, gravityNormal) * controller.transform.rotation;
+                print("Mesh: " + gravityNormal + "  :  " + targetRotate);
+                float rotatSped = 4f;
+                controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotatSped * Time.fixedDeltaTime);
+                return;
+            }
+        }
+    }
 }
