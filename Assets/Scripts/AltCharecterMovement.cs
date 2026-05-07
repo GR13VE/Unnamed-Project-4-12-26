@@ -70,7 +70,6 @@ public class AltCharecterMovement : MonoBehaviour
     void FixedUpdate()
     {
         velocity = controller.velocity;
-
         // Handel movement
         if (!isGrounded)
             velocity = move(wishDirection, velocity, airAcc, maxAirVel, airResistance); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
@@ -96,6 +95,7 @@ public class AltCharecterMovement : MonoBehaviour
     private Vector3 Accelerate(Vector3 accelDir, Vector3 prevVel, float accel, float maxVel)
     {
         float projVel = Vector3.Dot(prevVel, accelDir);
+        print("Project Vel: " + projVel + "  accelDir: " + accelDir);
         float accVel = accel * Time.fixedDeltaTime;
 
         if (projVel + accVel > maxVel)
@@ -139,7 +139,7 @@ public class AltCharecterMovement : MonoBehaviour
         {
             if(hit.transform.tag == gravityChange)
             {
-                gravityNormal = hit.normal.normalized;
+                gravityNormal =  hit.normal.normalized ;
                 gravityVector = -gravityNormal;
                 //gravityVector = hit.controller.transform.position - controller.transform.position;
                 Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, gravityNormal) * controller.transform.rotation;
