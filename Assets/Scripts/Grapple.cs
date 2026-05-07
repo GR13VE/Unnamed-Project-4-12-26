@@ -33,7 +33,6 @@ public class Grapple : MonoBehaviour
             if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, attackLayer))
             {
                 grappleDir = grapplePoint.point - grappleCast.position;
-                print("Hit Enemy: " + grapplePoint.point + "____ Direction: " + grappleDir );
                 isGrappling = true;
                 initiatedGrapple = true;
                 hitEnemy = true;
@@ -41,7 +40,6 @@ public class Grapple : MonoBehaviour
             else if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, grappleMask))
             {
                 grappleDir = grapplePoint.point - grappleCast.position;
-                print("Hit: " + grapplePoint.point + "____ Direction: " + grappleDir );
                 initiatedGrapple = true;
                 isGrappling = true;
             }
@@ -61,14 +59,12 @@ public class Grapple : MonoBehaviour
         {
             player.Move(Vector3.Normalize(grappleDir) * initialGrappleSpeed * Time.fixedDeltaTime);
             float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
-            print("Initiated Grapple: " + distance);
             initiatedGrapple = false; // Allows for different start up speed
 
             // Handle damage enemy
             if (hitEnemy && grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
             {
                 T.TakeDamage(attackDamage);
-                print("Grappled Target");
                 isGrappling = false;
                 grappleCoolDownTimer = grappleCoolDown;
             }

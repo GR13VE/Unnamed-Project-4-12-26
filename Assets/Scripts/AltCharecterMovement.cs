@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -6,6 +7,7 @@ public class AltCharecterMovement : MonoBehaviour
     [Header("Ground Movement")]
     public float groundAcc = 8f;
     public float maxGroundVel = 38f; // Mostly limits diagonal player speed added each fixed update
+    public float minGroundAcc = 4f;
     public float friction = 3.6f;
     public float jumpForce = 2.6f;
 
@@ -14,8 +16,7 @@ public class AltCharecterMovement : MonoBehaviour
     public float airAcc = 14f;
     public float airResistance = 1.6f;
     public float maxAirVel = 42f; // Limits arial speed added every fixed update
-    public float maxFallVel = -28f;
-
+    [SerializeField] float rotateSpeed = 4f;
 
     [Header("Buffers")]
     public float jumpBuffer = .1f; // Counts early jump presses
@@ -38,7 +39,9 @@ public class AltCharecterMovement : MonoBehaviour
     private bool isJumping = false;
     private Vector3 velocity;
     private Vector3 gravityVector = new Vector3(0, -1, 0); // Start with default gravity;
-    private Vector3 gravityNormal;
+    private Vector3 gravityNormal = new Vector3(0, 1, 0);
+    private Transform gravTransform;
+    float gravityDist = 10f;
 
     // Update is called once per frame
     void Update()
@@ -46,7 +49,7 @@ public class AltCharecterMovement : MonoBehaviour
         // Get Wish Direction
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        wishDirection = Vector3.Normalize(transform.right * x + transform.forward * z);
+        wishDirection = transform.right * x + transform.forward * z;
 
         // Handle Jump
         if (jumpBufferTime > 0 && isGrounded)
@@ -69,41 +72,57 @@ public class AltCharecterMovement : MonoBehaviour
    // Works
     void FixedUpdate()
     {
-        velocity = controller.velocity;
+        velocity = Vector3.Project(controller.velocity, gravityNormal);
+    
         // Handel movement
+        
         if (!isGrounded)
-            velocity = move(wishDirection, velocity, airAcc, maxAirVel, airResistance); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
+            velocity = move(wishDirection, controller.velocity, airAcc, maxAirVel, airResistance, 0f); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
         else
-            velocity = move(wishDirection, velocity, groundAcc, maxGroundVel, friction);
+            velocity = move(wishDirection, controller.velocity, groundAcc, maxGroundVel, friction, minGroundAcc);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask); // Makes a sphere at groundCheck to detect ground collisions
-        // Handle Jump
+
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, -transform.up, gravityDist);
+        if(hits.Length != 0)
+        {
+            RaycastHit[] tagged = hits.Where(i => i.transform.tag == gravityChange).ToArray();
+            foreach(var hit in tagged)
+            {
+                print(tagged.Length + "  Hit: " + hit.normal);
+               gravityNormal = hit.normal.normalized;
+               applyRotation();
+               break;
+            }
+        }
+
         if (isJumping)
         {
-            velocity += jumpForce * -gravityVector.normalized;
+            velocity +=  gravityNormal.normalized *jumpForce;
             isJumping = false;
         }
 
-        // Add Gravity
-        velocity +=  gravity* Time.fixedDeltaTime * gravityVector.normalized;
-
-        meshGravity();
+        if(!isGrounded)
+            velocity -=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
+        else
+            velocity -=  gravityNormal.normalized *  2 * Time.fixedDeltaTime;
 
         controller.Move(velocity * Time.fixedDeltaTime);
     }
 
-    private Vector3 Accelerate(Vector3 accelDir, Vector3 prevVel, float accel, float maxVel)
+    private Vector3 Accelerate(Vector3 accelDir, Vector3 prevVel, float accel, float maxVel, float minAcc)
     {
         float projVel = Vector3.Dot(prevVel, accelDir);
-        print("Project Vel: " + projVel + "  accelDir: " + accelDir);
         float accVel = accel * Time.fixedDeltaTime;
 
         if (projVel + accVel > maxVel)
             accVel = maxVel - projVel;
+        else if( projVel + accVel < minAcc && accelDir.magnitude != 0)
+            accVel = minAcc - projVel;
 
         return prevVel + accelDir * accVel;
     }
-    private Vector3 move(Vector3 accelDir, Vector3 prevVel, float acc, float maxAcc, float resistance)
+    private Vector3 move(Vector3 accelDir, Vector3 prevVel, float acc, float maxAcc, float resistance, float minAcc)
     {
         float speed = prevVel.magnitude;
         // Calculate how much friction to be applied this frame
@@ -112,7 +131,7 @@ public class AltCharecterMovement : MonoBehaviour
         if (speed != 0) // Avoid divide by zero
             prevVel *= Mathf.Max(speed - drop, 0) / speed;
 
-        return Accelerate(accelDir, prevVel, acc, maxAcc);
+        return Accelerate(accelDir, prevVel, acc, maxAcc, minAcc);
     }
 
     public void shiftGravity(Vector3 newGravity){
@@ -130,24 +149,9 @@ public class AltCharecterMovement : MonoBehaviour
         gravityVector = newGravity;
         controller.transform.Rotate(90 * rotateHandle.x , 0, 180 * rotateHandle.y);
     }
-    private void meshGravity()
-    {
-        float gravityDist = 10f;
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(groundCheck.position, -groundCheck.up, gravityDist, groundMask);
-        foreach(var hit in hits)
-        {
-            if(hit.transform.tag == gravityChange)
-            {
-                gravityNormal =  hit.normal.normalized ;
-                gravityVector = -gravityNormal;
-                //gravityVector = hit.controller.transform.position - controller.transform.position;
-                Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, gravityNormal) * controller.transform.rotation;
-                print("Mesh: " + gravityNormal + "  :  " + targetRotate);
-                float rotatSped = 4f;
-                controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotatSped * Time.fixedDeltaTime);
-                return;
-            }
-        }
+
+    private void applyRotation(){
+        Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, gravityNormal) * controller.transform.rotation;
+        controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotateSpeed * Time.fixedDeltaTime);
     }
 }
