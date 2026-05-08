@@ -113,7 +113,6 @@ public class AltCharecterMovement : MonoBehaviour
             print("Min: " + (prevVel + accelDir * minAcc));
             return prevVel + accelDir * minAcc;
         }
-        else if(isGrounded) print("Normal: " + (prevVel + accelDir * accVel));
 
         return prevVel + accelDir * accVel;
     }
