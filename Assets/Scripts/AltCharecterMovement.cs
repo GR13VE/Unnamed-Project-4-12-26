@@ -21,7 +21,6 @@ public class AltCharecterMovement : MonoBehaviour
     [SerializeField] float rotateSpeed = 4f; // Handles rotation for gravity changes
     [SerializeField] float gravityDist = 22f; // How far below a new gravity change needs to be to take affect
 
-
     [Header("Buffers")]
     [SerializeField] float jumpBuffer = .1f; // Counts early jump presses
     private float jumpBufferTime = 0f;
@@ -32,7 +31,6 @@ public class AltCharecterMovement : MonoBehaviour
 
     [SerializeField] LayerMask groundMask;
     [SerializeField] string gravityChange = "GravityShifter";
-
 
     private float groundDist = .08f;
     private bool isGrounded;
@@ -109,10 +107,7 @@ public class AltCharecterMovement : MonoBehaviour
         if (projVel + accVel > maxVel)
             accVel = maxVel - projVel;
         else if(projVel + accVel< minAcc && accelDir.magnitude != 0)
-        {
-            print("Min: " + (prevVel + accelDir * minAcc));
             return prevVel + accelDir * minAcc;
-        }
 
         return prevVel + accelDir * accVel;
     }
@@ -136,7 +131,7 @@ public class AltCharecterMovement : MonoBehaviour
             RaycastHit[] tagged = hits.Where(i => i.transform.tag == gravityChange).ToArray();
             foreach(var hit in tagged) // Should only have 1 but just in case we wanna change things
             {
-                print(tagged.Length + "  Hit: " + hit.normal);
+                //print(tagged.Length + "  Hit: " + hit.normal);
                gravityNormal = -hit.normal.normalized;
                return;
             }
