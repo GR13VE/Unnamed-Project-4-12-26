@@ -19,7 +19,7 @@ public class AltCharecterMovement : MonoBehaviour
     public float airResistance = 1.2f; // Adds slight resistance while in air to prevent bunny hopping maintaining all momentum
 
     [SerializeField] float rotateSpeed = 4f; // Handles rotation for gravity changes
-    [SerializeField] float gravityDist = 10f; // How far below a new gravity change needs to be to take affect
+    [SerializeField] float gravityDist = 22f; // How far below a new gravity change needs to be to take affect
 
 
     [Header("Buffers")]
@@ -141,6 +141,10 @@ public class AltCharecterMovement : MonoBehaviour
                gravityNormal = -hit.normal.normalized;
                return;
             }
+        }
+        else
+        {
+            gravityNormal = new Vector3(0, -1, 0);
         }
     }
 

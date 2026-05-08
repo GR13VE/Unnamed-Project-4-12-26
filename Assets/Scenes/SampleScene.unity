@@ -1134,8 +1134,8 @@ MonoBehaviour:
   maxAirVel: 10
   minAirVel: 1
   airResistance: 1.2
-  rotateSpeed: 20
-  gravityDist: 10
+  rotateSpeed: 4
+  gravityDist: 22
   jumpBuffer: 0.066
   controller: {fileID: 1089791846}
   groundCheck: {fileID: 1997751598}
