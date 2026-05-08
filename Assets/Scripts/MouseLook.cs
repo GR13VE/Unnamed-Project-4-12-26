@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
-    public float maxTilt = 4f;
-    public float tiltVelocityMult = .4f;
-    public float maxFovChange = 6f;
-    public float fovSmoothing = 1f;
-    public float maxVel = 60f;
-    public Transform playerBody;
-    public CharacterController player;
-    public Camera cam;
+    [SerializeField] float mouseSensitivity = 100f;
+    [SerializeField] float maxTilt = 4f;
+    [SerializeField] float tiltVelocityMult = .4f;
+    [SerializeField] float maxFovChange = 6f;
+    [SerializeField] float fovSmoothing = 1f;
+    [SerializeField] float maxVel = 60f;
+    [SerializeField] Transform playerBody;
+    [SerializeField] CharacterController player;
+    [SerializeField] Camera cam;
 
-    float xRotation = 0f;
-    float tilt = 0f;
+    private float xRotation = 0f;
+    private float tilt = 0f;
     
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

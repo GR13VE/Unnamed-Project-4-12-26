@@ -5,50 +5,49 @@ using Vector3 = UnityEngine.Vector3;
 public class AltCharecterMovement : MonoBehaviour
 {
     [Header("Ground Movement")]
-    public float groundAcc = 8f;
-    public float maxGroundVel = 38f; // Mostly limits diagonal player speed added each fixed update
-    public float minGroundAcc = 4f;
-    public float friction = 3.6f;
-    public float jumpForce = 2.6f;
+    public float groundAcc = 38f;
+    public float maxGroundVel = 16f; // Mostly limits diagonal player speed added each fixed update
+    [SerializeField] float minGroundVel = 2f; // Minimum acceleration that an input can result in
+    public float friction = 4f;
+    public float jumpForce = 20f;
 
     [Header("Arial Movement")]
-    public float gravity = -16f;
-    public float airAcc = 14f;
-    public float airResistance = 1.6f;
-    public float maxAirVel = 42f; // Limits arial speed added every fixed update
-    [SerializeField] float rotateSpeed = 4f;
+    public float gravity = 32f;
+    public float airAcc = 16f;
+    public float maxAirVel = 12f; // Limits arial speed added every fixed update
+    [SerializeField] float minAirVel = 1f;
+    public float airResistance = 1.2f; // Adds slight resistance while in air to prevent bunny hopping maintaining all momentum
+
+    [SerializeField] float rotateSpeed = 4f; // Handles rotation for gravity changes
+    [SerializeField] float gravityDist = 10f; // How far below a new gravity change needs to be to take affect
+
 
     [Header("Buffers")]
-    public float jumpBuffer = .1f; // Counts early jump presses
+    [SerializeField] float jumpBuffer = .1f; // Counts early jump presses
     private float jumpBufferTime = 0f;
 
     [Header("Setup")]
-    public CharacterController controller;
-    public Transform groundCheck;
-    public Transform grappleCast;
+    [SerializeField] CharacterController controller;
+    [SerializeField] Transform groundCheck;
 
-    public LayerMask groundMask;
-    public string gravityChange = "GravityShifter";
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] string gravityChange = "GravityShifter";
 
 
     private float groundDist = .08f;
     private bool isGrounded;
+    private Vector3 gravityNormal = new Vector3(0, -1, 0);
 
     // Input Handling
     private Vector3 wishDirection; // Desired direction for the player
     private bool isJumping = false;
-    private Vector3 velocity;
-    private Vector3 gravityVector = new Vector3(0, -1, 0); // Start with default gravity;
-    private Vector3 gravityNormal = new Vector3(0, 1, 0);
-    private Transform gravTransform;
-    float gravityDist = 10f;
 
     // Update is called once per frame
     void Update()
     {
         // Get Wish Direction
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
         wishDirection = transform.right * x + transform.forward * z;
 
         // Handle Jump
@@ -69,43 +68,35 @@ public class AltCharecterMovement : MonoBehaviour
         if (jumpBufferTime > 0)
             jumpBufferTime -= Time.deltaTime;
     }
-   // Works
+    
     void FixedUpdate()
     {
-        velocity = Vector3.Project(controller.velocity, gravityNormal);
+        Vector3 velocity;
     
         // Handel movement
-        
         if (!isGrounded)
-            velocity = move(wishDirection, controller.velocity, airAcc, maxAirVel, airResistance, 0f); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
+            velocity = move(wishDirection, controller.velocity, airAcc, maxAirVel, airResistance, minAirVel); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
         else
-            velocity = move(wishDirection, controller.velocity, groundAcc, maxGroundVel, friction, minGroundAcc);
+            velocity = move(wishDirection, controller.velocity, groundAcc, maxGroundVel, friction, minGroundVel);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask); // Makes a sphere at groundCheck to detect ground collisions
 
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, -transform.up, gravityDist);
-        if(hits.Length != 0)
-        {
-            RaycastHit[] tagged = hits.Where(i => i.transform.tag == gravityChange).ToArray();
-            foreach(var hit in tagged)
-            {
-                print(tagged.Length + "  Hit: " + hit.normal);
-               gravityNormal = hit.normal.normalized;
-               applyRotation();
-               break;
-            }
-        }
+        // Check for alt gravity ground via Gravity Shifter tag
+        meshGravity();
 
         if (isJumping)
         {
-            velocity +=  gravityNormal.normalized *jumpForce;
+            velocity -=  gravityNormal.normalized *jumpForce;
             isJumping = false;
         }
 
+        // Add gravity
         if(!isGrounded)
-            velocity -=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
-        else
-            velocity -=  gravityNormal.normalized *  2 * Time.fixedDeltaTime;
+            velocity +=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
+        else // Prevents oddities varied gravity
+            velocity +=  gravityNormal.normalized *  2f * Time.fixedDeltaTime;
+        
+        applyRotation(); // Applies any gravity shifting rotations
 
         controller.Move(velocity * Time.fixedDeltaTime);
     }
@@ -117,8 +108,12 @@ public class AltCharecterMovement : MonoBehaviour
 
         if (projVel + accVel > maxVel)
             accVel = maxVel - projVel;
-        else if( projVel + accVel < minAcc && accelDir.magnitude != 0)
-            accVel = minAcc - projVel;
+        else if(projVel + accVel< minAcc && accelDir.magnitude != 0)
+        {
+            print("Min: " + (prevVel + accelDir * minAcc));
+            return prevVel + accelDir * minAcc;
+        }
+        else if(isGrounded) print("Normal: " + (prevVel + accelDir * accVel));
 
         return prevVel + accelDir * accVel;
     }
@@ -134,24 +129,28 @@ public class AltCharecterMovement : MonoBehaviour
         return Accelerate(accelDir, prevVel, acc, maxAcc, minAcc);
     }
 
+    private void meshGravity()
+    {
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, -transform.up, gravityDist);
+        if(hits.Length != 0)
+        {
+            RaycastHit[] tagged = hits.Where(i => i.transform.tag == gravityChange).ToArray();
+            foreach(var hit in tagged) // Should only have 1 but just in case we wanna change things
+            {
+                print(tagged.Length + "  Hit: " + hit.normal);
+               gravityNormal = -hit.normal.normalized;
+               return;
+            }
+        }
+    }
+
     public void shiftGravity(Vector3 newGravity){
         print("Gravity SHift: " + newGravity + " magnitude: " + newGravity.magnitude);
-        Vector3 rotateHandle = newGravity;
-        if(gravityVector.x != newGravity.x){
-            rotateHandle.x = newGravity.x;
-            }
-        if(gravityVector.y != newGravity.y){
-            rotateHandle.y = newGravity.y;
-        }
-        if(gravityVector.z != newGravity.z)
-            rotateHandle.x = newGravity.z;
-        
-        gravityVector = newGravity;
-        controller.transform.Rotate(90 * rotateHandle.x , 0, 180 * rotateHandle.y);
+        gravityNormal = newGravity.normalized;
     }
 
     private void applyRotation(){
-        Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, gravityNormal) * controller.transform.rotation;
+        Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, -gravityNormal) * controller.transform.rotation;
         controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotateSpeed * Time.fixedDeltaTime);
     }
 }

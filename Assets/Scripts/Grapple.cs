@@ -6,30 +6,29 @@ public class Grapple : MonoBehaviour
     [Header("Grapple")]
 
     public float grappleDistance = 40f;
-    public float initialGrappleSpeed = 40f;
-    public float continuosGrappleSpeed = 10f;
+    [SerializeField] float initialGrappleSpeed = 40f;
+    [SerializeField] float continuosGrappleSpeed = 10f;
     public int attackDamage = 2;
     public float grappleCoolDown = 2f;
     private float grappleCoolDownTimer = 0f;
 
     [Header("Setup")]
-    public Transform grappleCast;
-    public CharacterController player;
-    public LayerMask grappleMask;
-    public LayerMask attackLayer;
+    [SerializeField] Transform grappleCast;
+    [SerializeField] CharacterController player;
+    [SerializeField] LayerMask grappleMask;
+    [SerializeField] LayerMask attackLayer;
 
-    RaycastHit grapplePoint;
-    Vector3 grappleDir;
-    bool isGrappling = false;
-    bool initiatedGrapple = false;
-    bool hitEnemy = false;
+    private RaycastHit grapplePoint;
+    private Vector3 grappleDir;
+    private bool isGrappling = false;
+    private bool initiatedGrapple = false;
+    private bool hitEnemy = false;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire2") && grappleCoolDownTimer <= 0)
         {
-            grappleCoolDownTimer = grappleCoolDown;
             if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, attackLayer))
             {
                 grappleDir = grapplePoint.point - grappleCast.position;
@@ -55,16 +54,15 @@ public class Grapple : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (initiatedGrapple)
+        if (initiatedGrapple) // Starting speed
         {
             player.Move(Vector3.Normalize(grappleDir) * initialGrappleSpeed * Time.fixedDeltaTime);
-            float distance = Vector3.Distance(grappleCast.position, grapplePoint.transform.position);
             initiatedGrapple = false; // Allows for different start up speed
 
             // Handle damage enemy
             if (hitEnemy && grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
             {
-                T.TakeDamage(attackDamage);
+                T.TakeDamage(attackDamage); // Damage target enemy
                 isGrappling = false;
                 grappleCoolDownTimer = grappleCoolDown;
             }

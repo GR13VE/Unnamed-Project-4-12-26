@@ -7,13 +7,13 @@ public class CrossBow : MonoBehaviour
     public float minPushForce = 2f;
     public float areaOfEffect = 4f;
     public float coolDown = 1f;
-    public Transform crossBow;
-    public LayerMask groundMask;
-    public LayerMask playerMask;
-    public LayerMask enemyMask;
+    [SerializeField] Transform crossBow;
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] LayerMask playerMask;
+    [SerializeField] LayerMask enemyMask;
 
-    RaycastHit hit;
-    float coolDownTimer = 0f;
+    private RaycastHit hit;
+    private float coolDownTimer = 0f;
 
     // Update is called once per frame
     void Update()
@@ -48,7 +48,5 @@ public class CrossBow : MonoBehaviour
         }
         else if(coolDownTimer > 0)
             coolDownTimer -= Time.deltaTime;
-
     }
-
 }

@@ -1125,24 +1125,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   groundAcc: 38
-  maxGroundVel: 48
-  minGroundAcc: 10
-  friction: 6
+  maxGroundVel: 14
+  minGroundVel: 2
+  friction: 4
   jumpForce: 20
   gravity: 32
   airAcc: 16
+  maxAirVel: 10
+  minAirVel: 1
   airResistance: 1.2
-  maxAirVel: 26
-  maxFallVel: -20
+  rotateSpeed: 20
+  gravityDist: 10
   jumpBuffer: 0.066
   controller: {fileID: 1089791846}
   groundCheck: {fileID: 1997751598}
-  grappleCast: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   gravityChange: GravityShifter
-  rotateSpeed: 20
 --- !u!114 &1089791850
 MonoBehaviour:
   m_ObjectHideFlags: 0
