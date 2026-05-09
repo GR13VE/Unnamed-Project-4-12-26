@@ -34,7 +34,7 @@ public class AltCharecterMovement : MonoBehaviour
 
     private float groundDist = .08f;
     private bool isGrounded;
-    private Vector3 gravityNormal = new Vector3(0, -1, 0);
+    public Vector3 gravityNormal = new Vector3(0, -1, 0);
 
     // Input Handling
     private Vector3 wishDirection; // Desired direction for the player

@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 94807447}
   - component: {fileID: 94807452}
   - component: {fileID: 94807451}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 94807446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.14, y: 0.36000013, z: -45.95}
+  m_LocalPosition: {x: -21.14, y: 0.2, z: -45.95}
   m_LocalScale: {x: 2, y: 0.4, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -444,12 +444,13 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.712, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 623140612}
   - {fileID: 120935372}
+  - {fileID: 668415788}
   m_Father: {fileID: 1089791847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
@@ -912,6 +913,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &668415787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 668415788}
+  m_Layer: 0
+  m_Name: MantleCast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &668415788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668415787}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 330585546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1201,7 @@ GameObject:
   - component: {fileID: 1089791849}
   - component: {fileID: 1089791850}
   - component: {fileID: 1089791851}
+  - component: {fileID: 1089791852}
   m_Layer: 8
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -1291,6 +1324,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gravityChange: GravityShifter
+  gravityNormal: {x: 0, y: -1, z: 0}
 --- !u!114 &1089791850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,6 +1377,27 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1089791852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089791844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ced72ef832f99ee0a057162abdca91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  mantleOverDistance: 1
+  mantleSpeed: 4
+  mantleCastDistance: 2
+  mantleCast: {fileID: 668415788}
+  cameraCast: {fileID: 120935372}
+  groundCheck: {fileID: 1997751598}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1110577355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,8 +1504,8 @@ Transform:
   m_GameObject: {fileID: 1110577355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.57, y: 5.11, z: -65.71}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 8.57, y: 2.5, z: -65.71}
+  m_LocalScale: {x: 10, y: 5, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7320,7 +7375,7 @@ Transform:
   m_GameObject: {fileID: 1997751597}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.14, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
