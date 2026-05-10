@@ -6,8 +6,8 @@ public class gravityShifter : MonoBehaviour
 
     void OnTriggerEnter(Collider target)
     {
-        AltCharecterMovement player;
-        if(target.transform.TryGetComponent<AltCharecterMovement>(out player))
+        CharacterMovement player;
+        if(target.transform.TryGetComponent<CharacterMovement>(out player))
             player.shiftGravity(gravityShiftVector);
     }
 }

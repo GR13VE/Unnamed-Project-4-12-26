@@ -23,7 +23,7 @@ public class Mantle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerGravity = player.GetComponent<AltCharecterMovement>().gravityNormal;
+        Vector3 playerGravity = player.GetComponent<CharacterMovement>().gravityNormal;
         RaycastHit hit;
         bool isCameraCast = Physics.Raycast(cameraCast.position, mantleCast.forward, mantleCastDistance + mantleOverDistance, groundMask);
         bool isMantleCast = Physics.Raycast(mantleCast.position, mantleCast.forward, out hit, mantleCastDistance, groundMask);
@@ -48,10 +48,7 @@ public class Mantle : MonoBehaviour
             player.Move(Vector3.Normalize(mantleDir) * mantleSpeed * Time.fixedDeltaTime);
             float distance = Vector3.Distance(mantleHit.point, groundCheck.position);
             if(Mathf.Round(distance) == 0f)
-            {
-                print("Mantled");
                 isMantling = false;
-            }
         }
     }
 }

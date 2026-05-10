@@ -23,6 +23,12 @@ public class Grapple : MonoBehaviour
     private bool isGrappling = false;
     private bool initiatedGrapple = false;
     private bool hitEnemy = false;
+    private CharacterMovement playerScript;
+
+    void Start()
+    {
+        playerScript = player.GetComponent<CharacterMovement>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +50,7 @@ public class Grapple : MonoBehaviour
         {
             grappleCoolDownTimer = grappleCoolDown;
             isGrappling = false;
+            playerScript.resetGrapple();
         }
         else if( grappleCoolDownTimer > 0)
             grappleCoolDownTimer -= Time.deltaTime;
@@ -51,7 +58,6 @@ public class Grapple : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 grappleDir;
-        AltCharecterMovement playerScript = player.GetComponent<AltCharecterMovement>(); 
         
         if (initiatedGrapple) // Starting speed
         {
@@ -67,6 +73,7 @@ public class Grapple : MonoBehaviour
             {
                 T.TakeDamage(attackDamage); // Damage target enemy
                 grappleCoolDownTimer = grappleCoolDown;
+                playerScript.resetGrapple();
             }
             else
                 isGrappling = true;
@@ -80,9 +87,10 @@ public class Grapple : MonoBehaviour
             // Should cancel grapple?
             float distance = Vector3.Distance(player.transform.position, grapplePoint.point);
             if(Mathf.Round(distance) <= cancelDistance)
+            {
                 isGrappling = false;
+                playerScript.resetGrapple();
+            }
         }
-        else
-            playerScript.resetGrapple();
     }
 }

@@ -5,7 +5,6 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] float maxTilt = 4f;
     [SerializeField] float tiltVelocityMult = .4f;
-    [SerializeField] float maxFovChange = 6f;
     [SerializeField] float fovSmoothing = 1f;
     [SerializeField] float maxVel = 60f;
     [SerializeField] Transform playerBody;

@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-public class AltCharecterMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     [Header("Ground Movement")]
     public float groundAcc = 38f;
@@ -21,7 +21,7 @@ public class AltCharecterMovement : MonoBehaviour
 
 
     [SerializeField] float maxGrappleVel = 24f;
-    [SerializeField] float maxGrappleWishDir = .6f; // Clamps the magnitude of the Wish Direction
+    [SerializeField] float maxGrappleWishDir = .8f; // Clamps the magnitude of the Wish Direction
 
     [Header("Buffers")]
     [SerializeField] float jumpBuffer = .1f; // Counts early jump presses
@@ -77,7 +77,7 @@ public class AltCharecterMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 velocity = controller.velocity;
-        bool isGrappling = grappleVelocity != Vector3.zero;
+        bool isGrappling = grappleDirection != Vector3.zero;
         if (isGrappling)
             wishDirection = Vector3.ClampMagnitude(wishDirection, maxGrappleWishDir);
     
@@ -91,18 +91,17 @@ public class AltCharecterMovement : MonoBehaviour
         // Check for alt gravity ground via Gravity Shifter tag
         meshGravity();
 
+        // Handle Jump
         if (isJumping)
         {
             velocity -=  gravityNormal.normalized *jumpForce;
             isGrounded = false;
             isJumping = false;
         }
+        
+        // Handle Grapple and Gravity
         if(isGrappling)
-        {
             velocity += grappleVelocity;
-            velocity -= gravityNormal.normalized *  (isGrounded? standingGravity : gravity) * Time.fixedDeltaTime;
-            print("Grappling Velocity: " + velocity);
-        }
         else if(!isGrounded) // Add gravity
             velocity +=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
         else // Helps stick the player to the ground
@@ -119,15 +118,9 @@ public class AltCharecterMovement : MonoBehaviour
         float accVel = accel * Time.fixedDeltaTime;
 
         if (projVel + accVel > maxVel)
-        {
             accVel = maxVel - projVel;
-            print("Max");
-        }
         else if(projVel + accVel< minAcc && accelDir.magnitude != 0)
-        {
-            print("Min");
             return prevVel + accelDir * minAcc;
-        }
 
         return prevVel + accelDir * accVel;
     }

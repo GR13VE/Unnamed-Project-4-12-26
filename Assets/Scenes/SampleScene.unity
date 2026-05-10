@@ -512,7 +512,6 @@ MonoBehaviour:
   mouseSensitivity: 420
   maxTilt: 1.6
   tiltVelocityMult: 0.24
-  maxFovChange: 0
   fovSmoothing: 0
   maxVel: 40
   playerBody: {fileID: 1089791847}
@@ -1317,7 +1316,7 @@ MonoBehaviour:
   minAirVel: 1
   airResistance: 1
   maxGrappleVel: 20
-  maxGrappleWishDir: 0.66
+  maxGrappleWishDir: 0.8
   jumpBuffer: 0.08
   rotateSpeed: 4
   gravityDist: 22
