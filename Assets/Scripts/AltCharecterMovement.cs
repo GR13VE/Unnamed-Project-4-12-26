@@ -13,19 +13,23 @@ public class AltCharecterMovement : MonoBehaviour
 
     [Header("Arial Movement")]
     public float gravity = 32f;
+    public float standingGravity = 2f;
     public float airAcc = 16f;
     public float maxAirVel = 12f; // Limits arial speed added every fixed update
     [SerializeField] float minAirVel = 1f;
-    public float airResistance = 1.2f; // Adds slight resistance while in air to prevent bunny hopping maintaining all momentum
+    public float airResistance = 1.2f;
 
-    [SerializeField] float rotateSpeed = 4f; // Handles rotation for gravity changes
-    [SerializeField] float gravityDist = 22f; // How far below a new gravity change needs to be to take affect
+
+    [SerializeField] float maxGrappleVel = 24f;
+    [SerializeField] float maxGrappleWishDir = .6f; // Clamps the magnitude of the Wish Direction
 
     [Header("Buffers")]
     [SerializeField] float jumpBuffer = .1f; // Counts early jump presses
     private float jumpBufferTime = 0f;
 
     [Header("Setup")]
+    [SerializeField] float rotateSpeed = 4f; // Handles rotation for gravity changes
+    [SerializeField] float gravityDist = 22f; // How far below a new gravity change needs to be to take affect
     [SerializeField] CharacterController controller;
     [SerializeField] Transform groundCheck;
 
@@ -33,8 +37,10 @@ public class AltCharecterMovement : MonoBehaviour
     [SerializeField] string gravityChange = "GravityShifter";
 
     private float groundDist = .08f;
-    private bool isGrounded;
+    public bool isGrounded;
     public Vector3 gravityNormal = new Vector3(0, -1, 0);
+    public Vector3 grappleVelocity;
+    public Vector3 grappleDirection;
 
     // Input Handling
     private Vector3 wishDirection; // Desired direction for the player
@@ -47,6 +53,7 @@ public class AltCharecterMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         wishDirection = transform.right * x + transform.forward * z;
+        wishDirection = Vector3.ClampMagnitude(wishDirection, 1f);
 
         // Handle Jump
         if (jumpBufferTime > 0 && isGrounded)
@@ -69,30 +76,37 @@ public class AltCharecterMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        Vector3 velocity;
+        Vector3 velocity = controller.velocity;
+        bool isGrappling = grappleVelocity != Vector3.zero;
+        if (isGrappling)
+            wishDirection = Vector3.ClampMagnitude(wishDirection, maxGrappleWishDir);
     
         // Handel movement
         if (!isGrounded)
-            velocity = move(wishDirection, controller.velocity, airAcc, maxAirVel, airResistance, minAirVel); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
+            velocity = move(wishDirection, velocity, airAcc, isGrappling? maxGrappleVel : maxAirVel,airResistance, minAirVel); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
         else
-            velocity = move(wishDirection, controller.velocity, groundAcc, maxGroundVel, friction, minGroundVel);
-
+            velocity = move(wishDirection, velocity, groundAcc, isGrappling? maxGrappleVel : maxGroundVel, friction, minGroundVel);
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask); // Makes a sphere at groundCheck to detect ground collisions
-
         // Check for alt gravity ground via Gravity Shifter tag
         meshGravity();
 
         if (isJumping)
         {
             velocity -=  gravityNormal.normalized *jumpForce;
+            isGrounded = false;
             isJumping = false;
         }
-
-        // Add gravity
-        if(!isGrounded)
+        if(isGrappling)
+        {
+            velocity += grappleVelocity;
+            velocity -= gravityNormal.normalized *  (isGrounded? standingGravity : gravity) * Time.fixedDeltaTime;
+            print("Grappling Velocity: " + velocity);
+        }
+        else if(!isGrounded) // Add gravity
             velocity +=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
-        else // Prevents oddities varied gravity
-            velocity +=  gravityNormal.normalized *  2f * Time.fixedDeltaTime;
+        else // Helps stick the player to the ground
+            velocity +=  gravityNormal.normalized * standingGravity * Time.fixedDeltaTime;
         
         applyRotation(); // Applies any gravity shifting rotations
 
@@ -105,9 +119,15 @@ public class AltCharecterMovement : MonoBehaviour
         float accVel = accel * Time.fixedDeltaTime;
 
         if (projVel + accVel > maxVel)
+        {
             accVel = maxVel - projVel;
+            print("Max");
+        }
         else if(projVel + accVel< minAcc && accelDir.magnitude != 0)
+        {
+            print("Min");
             return prevVel + accelDir * minAcc;
+        }
 
         return prevVel + accelDir * accVel;
     }
@@ -150,5 +170,11 @@ public class AltCharecterMovement : MonoBehaviour
     private void applyRotation(){
         Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, -gravityNormal) * controller.transform.rotation;
         controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotateSpeed * Time.fixedDeltaTime);
+    }
+
+    public void resetGrapple()
+    {
+        grappleDirection = Vector3.zero;
+        grappleVelocity = Vector3.zero;
     }
 }

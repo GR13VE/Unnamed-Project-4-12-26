@@ -1305,26 +1305,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342cd13ab00b20cebb7bcaa65980eea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  groundAcc: 38
-  maxGroundVel: 14
+  groundAcc: 46
+  maxGroundVel: 26
   minGroundVel: 2
-  friction: 4
+  friction: 5
   jumpForce: 20
   gravity: 32
+  standingGravity: 2
   airAcc: 16
-  maxAirVel: 10
+  maxAirVel: 18
   minAirVel: 1
-  airResistance: 1.2
+  airResistance: 1
+  maxGrappleVel: 20
+  maxGrappleWishDir: 0.66
+  jumpBuffer: 0.08
   rotateSpeed: 4
   gravityDist: 22
-  jumpBuffer: 0.066
   controller: {fileID: 1089791846}
   groundCheck: {fileID: 1997751598}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   gravityChange: GravityShifter
+  isGrounded: 0
   gravityNormal: {x: 0, y: -1, z: 0}
+  grappleVelocity: {x: 0, y: 0, z: 0}
+  grappleDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1089791850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,9 +1343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2845329372e166bb96a31cfb287241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  grappleDistance: 100
-  initialGrappleSpeed: 40
-  continuosGrappleSpeed: 20
+  grappleDistance: 60
+  initialGrappleSpeed: 80
+  continuosGrappleSpeed: 80
+  cancelDistance: 2
   attackDamage: 2
   grappleCoolDown: 0.8
   grappleCast: {fileID: 120935372}
