@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342cd13ab00b20cebb7bcaa65980eea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  groundAcc: 46
+  groundAcc: 48
   maxGroundVel: 26
   minGroundVel: 2
   friction: 5
@@ -1343,8 +1343,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   grappleDistance: 60
-  initialGrappleSpeed: 80
-  continuosGrappleSpeed: 80
+  initialGrappleSpeed: 40
+  continuosGrappleSpeed: 40
   cancelDistance: 2
   attackDamage: 2
   grappleCoolDown: 0.8

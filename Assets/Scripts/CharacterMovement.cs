@@ -144,15 +144,12 @@ public class CharacterMovement : MonoBehaviour
             RaycastHit[] tagged = hits.Where(i => i.transform.tag == gravityChange).ToArray();
             foreach(var hit in tagged) // Should only have 1 but just in case we wanna change things
             {
-                //print(tagged.Length + "  Hit: " + hit.normal);
                gravityNormal = -hit.normal.normalized;
                return;
             }
         }
-        else
-        {
+        else // Set Gravity to default
             gravityNormal = new Vector3(0, -1, 0);
-        }
     }
 
     public void shiftGravity(Vector3 newGravity){

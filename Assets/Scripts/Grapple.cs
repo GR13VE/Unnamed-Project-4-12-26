@@ -64,7 +64,7 @@ public class Grapple : MonoBehaviour
             grappleDir = grapplePoint.point - grappleCast.position;
 
             // Add Grapple variables to player movement script
-            playerScript.grappleVelocity = Vector3.Normalize(grappleDir) * initialGrappleSpeed * Time.fixedDeltaTime;
+            playerScript.grappleVelocity = grappleDir * initialGrappleSpeed * Time.fixedDeltaTime;
             playerScript.grappleDirection = Vector3.Normalize(grappleDir);
             initiatedGrapple = false; // Allows for different start up speed
 
