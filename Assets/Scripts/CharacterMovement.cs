@@ -100,13 +100,21 @@ public class CharacterMovement : MonoBehaviour
         }
         
         // Handle Grapple and Gravity
+        Vector3 gravityForce = Vector3.Project(velocity, gravityNormal);
+
         if(isGrappling)
             velocity += grappleVelocity;
         else if(!isGrounded) // Add gravity
+        {
             velocity +=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
-        else // Helps stick the player to the ground
-            velocity +=  gravityNormal.normalized * standingGravity * Time.fixedDeltaTime;
         
+        }
+        else // Helps stick the player to the ground
+        {
+            velocity -= gravityForce;
+            velocity +=  gravityNormal.normalized * standingGravity * Time.fixedDeltaTime;
+        }
+
         applyRotation(); // Applies any gravity shifting rotations
 
         controller.Move(velocity * Time.fixedDeltaTime);
@@ -158,8 +166,9 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void applyRotation(){
+        float rotatePlayer = rotateSpeed * (isGrounded? 1 : .5f);
         Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, -gravityNormal) * controller.transform.rotation;
-        controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotateSpeed * Time.fixedDeltaTime);
+        controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotatePlayer * Time.fixedDeltaTime);
     }
 
     public void resetGrapple()
