@@ -36,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] string gravityChange = "GravityShifter";
 
-    private float groundDist = .08f;
+    private float groundDist = .2f;
     public bool isGrounded;
     public Vector3 gravityNormal = new Vector3(0, -1, 0);
     public Vector3 grappleVelocity;
