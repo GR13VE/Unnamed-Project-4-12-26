@@ -5,16 +5,17 @@ TagManager:
   serializedVersion: 3
   tags:
   - GravityShifter
+  - Swing Pole
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PLayer
   - Water
   - UI
   - Surace
   - Enemy
-  - Player
+  - Swing
   - 
   - 
   - 

@@ -21,7 +21,6 @@ public class CharacterMovement : MonoBehaviour
 
 
     [SerializeField] float maxGrappleVel = 24f;
-    [SerializeField] float maxGrappleWishDir = .8f; // Clamps the magnitude of the Wish Direction
 
     [Header("Buffers")]
     [SerializeField] float jumpBuffer = .1f; // Counts early jump presses
@@ -43,7 +42,7 @@ public class CharacterMovement : MonoBehaviour
     public Vector3 grappleDirection;
 
     // Input Handling
-    private Vector3 wishDirection; // Desired direction for the player
+    public Vector3 wishDirection; // Desired direction for the player
     private bool isJumping = false;
 
     // Update is called once per frame
@@ -78,18 +77,16 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 velocity = controller.velocity;
         bool isGrappling = grappleDirection != Vector3.zero;
-        if (isGrappling)
-            wishDirection = Vector3.ClampMagnitude(wishDirection, maxGrappleWishDir);
     
         // Handel movement
         if (!isGrounded)
-            velocity = move(wishDirection, velocity, airAcc, isGrappling? maxGrappleVel : maxAirVel,airResistance, minAirVel); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
+            velocity = move(wishDirection, velocity, airAcc, isGrappling? maxGrappleVel : maxAirVel,airResistance, isGrappling? 0f : minAirVel); // Quake instead returns Accelerate directly. This approach allows us to easily limit bunny hopping speed with Max Air Velocity and add air resistance.
         else
-            velocity = move(wishDirection, velocity, groundAcc, isGrappling? maxGrappleVel : maxGroundVel, friction, minGroundVel);
+            velocity = move(wishDirection, velocity, groundAcc, isGrappling? maxGrappleVel : maxGroundVel, friction, isGrappling? 0f: minGroundVel);
         
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask); // Makes a sphere at groundCheck to detect ground collisions
         // Check for alt gravity ground via Gravity Shifter tag
-        meshGravity();
+        if(!meshGravity())  applyRotation(-gravityNormal); // Applies any gravity shifting rotations necessary
 
         // Handle Jump
         if (isJumping)
@@ -105,17 +102,12 @@ public class CharacterMovement : MonoBehaviour
         if(isGrappling)
             velocity += grappleVelocity;
         else if(!isGrounded) // Add gravity
-        {
             velocity +=  gravityNormal.normalized *  gravity * Time.fixedDeltaTime;
-        
-        }
         else // Helps stick the player to the ground
         {
             velocity -= gravityForce;
             velocity +=  gravityNormal.normalized * standingGravity * Time.fixedDeltaTime;
         }
-
-        applyRotation(); // Applies any gravity shifting rotations
 
         controller.Move(velocity * Time.fixedDeltaTime);
     }
@@ -144,7 +136,7 @@ public class CharacterMovement : MonoBehaviour
         return Accelerate(accelDir, prevVel, acc, maxAcc, minAcc);
     }
 
-    private void meshGravity()
+    private bool meshGravity()
     {
         RaycastHit[] hits = Physics.RaycastAll(transform.position, -transform.up, gravityDist);
         if(hits.Length != 0)
@@ -153,11 +145,13 @@ public class CharacterMovement : MonoBehaviour
             foreach(var hit in tagged) // Should only have 1 but just in case we wanna change things
             {
                gravityNormal = -hit.normal.normalized;
-               return;
+               break;
             }
         }
         else // Set Gravity to default
             gravityNormal = new Vector3(0, -1, 0);
+
+        return controller.transform.rotation == Quaternion.FromToRotation(controller.transform.up, -gravityNormal) * controller.transform.rotation;
     }
 
     public void shiftGravity(Vector3 newGravity){
@@ -165,9 +159,9 @@ public class CharacterMovement : MonoBehaviour
         gravityNormal = newGravity.normalized;
     }
 
-    private void applyRotation(){
+    public void applyRotation(Vector3 rotateToo){
         float rotatePlayer = rotateSpeed * (isGrounded? 1 : .5f);
-        Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, -gravityNormal) * controller.transform.rotation;
+        Quaternion targetRotate = Quaternion.FromToRotation(controller.transform.up, rotateToo) * controller.transform.rotation;
         controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotate, rotatePlayer * Time.fixedDeltaTime);
     }
 

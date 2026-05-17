@@ -6,3 +6,4 @@
 *.slnx
 .vscode/settings.json
 *.sln
+*.lscache

@@ -1,3 +1,7 @@
+using System;
+using System.Linq;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 using Vector3 = UnityEngine.Vector3;
@@ -6,12 +10,14 @@ public class Grapple : MonoBehaviour
     [Header("Grapple")]
 
     public float grappleDistance = 40f;
-    [SerializeField] float initialGrappleSpeed = 40f;
-    [SerializeField] float continuosGrappleSpeed = 10f;
+    [SerializeField] float startingGrappleSpeed = 20f;
+    [SerializeField] float grappleSpeed = 10f;
     [SerializeField] float cancelDistance = 2f;
+    [SerializeField] float wishDirectionClamp = .8f;
     public int attackDamage = 2;
     public float grappleCoolDown = 2f;
     private float grappleCoolDownTimer = 0f;
+
 
     [Header("Setup")]
     [SerializeField] Transform grappleCast;
@@ -35,62 +41,52 @@ public class Grapple : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2") && grappleCoolDownTimer <= 0)
         {
-            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, attackLayer))
-            {
-                initiatedGrapple = true;
-                hitEnemy = true;
-            }
-            else if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleDistance, grappleMask))
-            {
-                initiatedGrapple = true;
-                isGrappling = true;
-            }
+            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleMask)) initiatedGrapple = true;
+            else  if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, attackLayer)) hitEnemy = true;
+            else print("Missed Grapple");
         }
-        else if(isGrappling && Input.GetButtonUp("Fire2"))
-        {
-            grappleCoolDownTimer = grappleCoolDown;
-            isGrappling = false;
-            playerScript.resetGrapple();
-        }
+        else if((isGrappling || hitEnemy) && Input.GetButtonUp("Fire2"))
+            cancel();
         else if( grappleCoolDownTimer > 0)
             grappleCoolDownTimer -= Time.deltaTime;
     }
     void FixedUpdate()
     {
-        Vector3 grappleDir;
+        if(initiatedGrapple || isGrappling) grapple();
+        else if(hitEnemy) enemyHit();
+    }
+
+    private void grapple()
+    {
+        Vector3 grappleDir = grapplePoint.point - grappleCast.position;
+        playerScript.grappleDirection = Vector3.Normalize(grappleDir);
+        if (initiatedGrapple)
+        {
+            playerScript.grappleVelocity = grappleDir * startingGrappleSpeed * Time.fixedDeltaTime;
+            initiatedGrapple = false;
+            isGrappling = true;
+        }
+        else
+            playerScript.grappleVelocity = Vector3.Normalize(grappleDir) * grappleSpeed * Time.fixedDeltaTime;
         
-        if (initiatedGrapple) // Starting speed
-        {
-            grappleDir = grapplePoint.point - grappleCast.position;
+        playerScript.wishDirection = Vector3.ClampMagnitude(playerScript.wishDirection, wishDirectionClamp);
 
-            // Add Grapple variables to player movement script
-            playerScript.grappleVelocity = grappleDir * initialGrappleSpeed * Time.fixedDeltaTime;
-            playerScript.grappleDirection = Vector3.Normalize(grappleDir);
-            initiatedGrapple = false; // Allows for different start up speed
+        // Should cancel grapple?
+        float distance = Vector3.Distance(player.transform.position, grapplePoint.point);
+        if(Mathf.Round(distance) <= cancelDistance) cancel();
+    }
 
-            // Handle damage enemy
-            if (hitEnemy && grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T))
-            {
-                T.TakeDamage(attackDamage); // Damage target enemy
-                grappleCoolDownTimer = grappleCoolDown;
-                playerScript.resetGrapple();
-            }
-            else
-                isGrappling = true;
-        }
-        else if (isGrappling)
-        {
-            grappleDir = grapplePoint.point - grappleCast.position;
-            playerScript.grappleDirection = Vector3.Normalize(grappleDir);
-            playerScript.grappleVelocity = Vector3.Normalize(grappleDir) * continuosGrappleSpeed * Time.fixedDeltaTime;
+    private void enemyHit()
+    {
+        grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T);
+        T.TakeDamage(attackDamage); // Damage target enemy
+        cancel();
+    }
 
-            // Should cancel grapple?
-            float distance = Vector3.Distance(player.transform.position, grapplePoint.point);
-            if(Mathf.Round(distance) <= cancelDistance)
-            {
-                isGrappling = false;
-                playerScript.resetGrapple();
-            }
-        }
+    public void cancel()
+    {
+        grappleCoolDownTimer = grappleCoolDown;
+        isGrappling = false;
+        playerScript.resetGrapple();
     }
 }
