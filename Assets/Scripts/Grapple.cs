@@ -25,7 +25,8 @@ public class Grapple : MonoBehaviour
     [SerializeField] LayerMask grappleMask;
     [SerializeField] LayerMask attackLayer;
 
-    private RaycastHit grapplePoint;
+    private RaycastHit grappleHit;
+    private RaycastHit enemyHit;
     private bool isGrappling = false;
     private bool initiatedGrapple = false;
     private bool hitEnemy = false;
@@ -41,24 +42,30 @@ public class Grapple : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2") && grappleCoolDownTimer <= 0)
         {
-            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, grappleMask)) initiatedGrapple = true;
-            else  if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grapplePoint, attackLayer)) hitEnemy = true;
-            else print("Missed Grapple");
+            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out grappleHit, grappleDistance, grappleMask)) 
+                initiatedGrapple = true;
+            if(Physics.Raycast(grappleCast.position, grappleCast.forward, out enemyHit, grappleDistance, attackLayer))
+                hitEnemy = true;
+            if(initiatedGrapple && hitEnemy) // Priorities grapple
+            {
+                print(grappleHit.distance + " : " + enemyHit.distance);
+                initiatedGrapple = grappleHit.distance <= enemyHit.distance;
+                hitEnemy = !initiatedGrapple;
+            }
+            
         }
-        else if((isGrappling || hitEnemy) && Input.GetButtonUp("Fire2"))
-            cancel();
         else if( grappleCoolDownTimer > 0)
             grappleCoolDownTimer -= Time.deltaTime;
     }
     void FixedUpdate()
     {
         if(initiatedGrapple || isGrappling) grapple();
-        else if(hitEnemy) enemyHit();
+        else if(hitEnemy) grappleEnemy();
     }
 
     private void grapple()
     {
-        Vector3 grappleDir = grapplePoint.point - grappleCast.position;
+        Vector3 grappleDir = grappleHit.point - grappleCast.position;
         playerScript.grappleDirection = Vector3.Normalize(grappleDir);
         if (initiatedGrapple)
         {
@@ -72,13 +79,14 @@ public class Grapple : MonoBehaviour
         playerScript.wishDirection = Vector3.ClampMagnitude(playerScript.wishDirection, wishDirectionClamp);
 
         // Should cancel grapple?
-        float distance = Vector3.Distance(player.transform.position, grapplePoint.point);
+        float distance = Vector3.Distance(player.transform.position, grappleHit.point);
         if(Mathf.Round(distance) <= cancelDistance) cancel();
     }
 
-    private void enemyHit()
+    private void grappleEnemy()
     {
-        grapplePoint.transform.TryGetComponent<Enemy>(out Enemy T);
+        enemyHit.transform.TryGetComponent<Enemy>(out Enemy T);
+        print("Hit: " + T.name);
         T.TakeDamage(attackDamage); // Damage target enemy
         cancel();
     }
@@ -87,6 +95,7 @@ public class Grapple : MonoBehaviour
     {
         grappleCoolDownTimer = grappleCoolDown;
         isGrappling = false;
+        hitEnemy = false;
         playerScript.resetGrapple();
     }
 }
